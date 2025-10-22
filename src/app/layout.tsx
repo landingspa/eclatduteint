@@ -38,12 +38,12 @@ export const metadata: Metadata = {
   authors: [{ name: "Éclat du teint" }],
   creator: "Éclat du teint",
   publisher: "Éclat du teint",
-  metadataBase: new URL("https://eclatduteint.com"),
+  metadataBase: new URL("https://eclatduteint.store"),
   openGraph: {
     title: "Éclat du teint - Sensitive Skin Specialist",
     description:
       "Dermocosmetic brand specializing in sensitive/problematic skin care, recognized by international dermatology experts.",
-    url: "https://eclatduteint.com",
+    url: "https://eclatduteint.store",
     siteName: "Éclat du teint",
     images: [
       {
