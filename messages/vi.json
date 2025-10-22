@@ -1,0 +1,75 @@
+{
+  "header": {
+    "navigation": {
+      "brand": "Câu chuyện thương hiệu",
+      "education": "Đăng ký đào tạo",
+      "products": "Sản phẩm",
+      "purpleLine": "THE PURPLE LINE",
+      "videoContent": "NỘI DUNG VIDEO",
+      "contact": "Liên hệ"
+    },
+    "auth": {
+      "login": "Đăng nhập",
+      "join": "Đăng ký",
+      "my": "Tài khoản"
+    },
+    "cart": "Giỏ hàng"
+  },
+  "navigation": {
+    "brand": "Thương hiệu",
+    "education": "Đăng ký đào tạo",
+    "products": "Sản phẩm",
+    "purpleLine": "THE PURPLE LINE",
+    "videoContent": "NỘI DUNG VIDEO",
+    "contact": "Liên hệ"
+  },
+  "hero": {
+    "title": "Sensitive Skin is Our Specialty",
+    "subtitle": "Da nhạy cảm là chuyên môn của \"Éclat du teint\"",
+    "description": "Chúng tôi là thương hiệu dermocosmetic chuyên chăm sóc da nhạy cảm/có vấn đề, được các chuyên gia da liễu quốc tế công nhận và tin tưởng, hợp tác với hơn 2.000 cơ sở chuyên khoa da trên toàn thế giới.",
+    "learnMore": "Tìm hiểu thêm về thương hiệu"
+  },
+  "purpleLineSection": {
+    "title": "Éclat du teint 'The Purple Line'",
+    "subtitle": "Dòng sản phẩm cao cấp Éclat du teint",
+    "description": "Gói sản phẩm cao cấp của Éclat du teint dành cho các chuyên gia. Hãy trở thành đối tác chính thức của Éclat du teint để nhận được nhiều ưu đãi và gói sản phẩm từ dòng cao cấp.",
+    "learnMore": "Tìm hiểu ưu đãi cao cấp"
+  },
+  "slide2": {
+    "title": "Éclat du teint 'The Purple Line'",
+    "subtitle": "Éclat du teint Purple Line",
+    "description": "Gói cao cấp của Éclat du teint dành cho chuyên gia. Trở thành đối tác chính thức của Éclat du teint và nhận các ưu đãi cùng gói sản phẩm cao cấp từ dòng Premium Line.",
+    "learnMore": "Tìm hiểu về ưu đãi cao cấp >"
+  },
+  "freeGift": {
+    "title": "Quà tặng miễn phí",
+    "subtitle": "Sự kiện 100% trúng thưởng gói trải nghiệm Éclat du teint",
+    "description": "Thêm kênh bạn bè Plus của Éclat du teint trên KakaoTalk và gửi giấy đăng ký kinh doanh qua KakaoTalk để nhận gói trải nghiệm.",
+    "getGift": "Nhận gói trải nghiệm"
+  },
+  "allProducts": {
+    "title": "Tất cả sản phẩm",
+    "subtitle": "Tất cả sản phẩm của Éclat du teint",
+    "description": "Đây là sản phẩm được tạo ra thông qua sự quan tâm và nghiên cứu của các chuyên gia chỉ dành riêng cho da.",
+    "viewAll": "Xem tất cả sản phẩm"
+  },
+  "footer": {
+    "companyInfo": "THÔNG TIN CÔNG TY",
+    "companyName": "Tên công ty: Công ty TNHH Epevia",
+    "representative": "Đại diện: Park Gyu-ri",
+    "phone": "Điện thoại: 070-4119-3360",
+    "businessNumber": "Số đăng ký kinh doanh: 293-87-02159",
+    "onlineBusinessNumber": "Đăng ký bán hàng trực tuyến: 제2022-서울강남-04985호",
+    "privacyOfficer": "Người phụ trách thông tin cá nhân: Park Gyu-ri",
+    "email": "Email: eclat.violeta@gmail.com",
+    "address": "Địa chỉ: Tầng 5, 12 Apgujeong-ro 42-gil, Gangnam-gu, Seoul 06017",
+    "terms": "Điều khoản sử dụng",
+    "privacy": "Chính sách bảo mật thông tin cá nhân"
+  },
+  "auth": {
+    "login": "Đăng nhập",
+    "join": "Đăng ký",
+    "my": "Tài khoản của tôi"
+  },
+  "cart": "Giỏ hàng"
+}

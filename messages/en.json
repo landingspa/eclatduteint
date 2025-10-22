@@ -1,0 +1,75 @@
+{
+  "header": {
+    "navigation": {
+      "brand": "Brand Story",
+      "education": "Education Application",
+      "products": "Products",
+      "purpleLine": "THE PURPLE LINE",
+      "videoContent": "VIDEO CONTENT",
+      "contact": "Contact"
+    },
+    "auth": {
+      "login": "Login",
+      "join": "Join",
+      "my": "My"
+    },
+    "cart": "Cart"
+  },
+  "navigation": {
+    "brand": "Brand",
+    "education": "Education Application",
+    "products": "Products",
+    "purpleLine": "THE PURPLE LINE",
+    "videoContent": "VIDEO CONTENT",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Sensitive Skin is Our Specialty",
+    "subtitle": "Sensitive skin is the specialty of \"Éclat du teint\"",
+    "description": "We are a dermocosmetic brand specializing in sensitive/problematic skin care, recognized and trusted by international dermatology experts, and cooperating with over 2,000 specialized skin institutions worldwide.",
+    "learnMore": "Learn more about the brand"
+  },
+  "purpleLineSection": {
+    "title": "Éclat du teint 'The Purple Line'",
+    "subtitle": "Éclat du teint Premium Line",
+    "description": "Éclat du teint's premium package for professionals. Become an official partner of Éclat du teint to receive various benefits and packages from the premium line.",
+    "learnMore": "Learn about premium benefits"
+  },
+  "slide2": {
+    "title": "Éclat du teint 'The Purple Line'",
+    "subtitle": "Éclat du teint Purple Line",
+    "description": "Premium package of Éclat du teint for professionals. Become an official partner of Éclat du teint and receive various benefits and packages from the Premium Line.",
+    "learnMore": "Learn about premium benefits >"
+  },
+  "freeGift": {
+    "title": "Free Gift",
+    "subtitle": "100% winning event for Éclat du teint experience pack",
+    "description": "Add Éclat du teint's KakaoTalk Plus Friend channel and send your business registration certificate via KakaoTalk to receive the experience pack.",
+    "getGift": "Get experience pack"
+  },
+  "allProducts": {
+    "title": "All Products",
+    "subtitle": "All products of Éclat du teint",
+    "description": "These are products created through the concerns and research of experts exclusively for skin.",
+    "viewAll": "View all products"
+  },
+  "footer": {
+    "companyInfo": "COMPANY INFO",
+    "companyName": "Company Name: Epevia Co., Ltd.",
+    "representative": "Representative: Park Gyu-ri",
+    "phone": "Phone: 070-4119-3360",
+    "businessNumber": "Business Registration Number: 293-87-02159",
+    "onlineBusinessNumber": "Online Business Registration: 제2022-서울강남-04985호",
+    "privacyOfficer": "Privacy Officer: Park Gyu-ri",
+    "email": "Email: eclat.violeta@gmail.com",
+    "address": "Address: 5th Floor, 12 Apgujeong-ro 42-gil, Gangnam-gu, Seoul 06017",
+    "terms": "Terms of Use",
+    "privacy": "Privacy Policy"
+  },
+  "auth": {
+    "login": "Login",
+    "join": "Join",
+    "my": "My Account"
+  },
+  "cart": "Cart"
+}
