@@ -21,7 +21,7 @@ const FreeGift = (props: Props) => {
       </div>
 
       {/* Content Section */}
-      <div className="w-full bg-gray-50 py-12 md:py-16 px-4">
+      <div className="w-full bg-gray-50 py-5 md:py-16 px-4">
         <div className="max-w-7xl mx-auto">
           {/* Mobile Layout - Title First, Image Below */}
           <div className="md:hidden flex flex-col text-center mb-8">

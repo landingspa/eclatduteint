@@ -50,19 +50,133 @@
   "allProducts": {
     "title": "All Products",
     "subtitle": "All products of Éclat du teint",
-    "description": "These are products created through the concerns and research of experts exclusively for skin.",
-    "viewAll": "View all products"
+    "desc": "These are products created through the concerns and research of experts exclusively for skin.",
+    "cta": "View all products >"
+  },
+  "productsGrid": {
+    "categories": {
+      "all": "All Products",
+      "set": "Set",
+      "guide": "Guide",
+      "peeling": "Peeling / Scaling",
+      "skincare": "Skincare",
+      "mask": "Mask / Pack"
+    },
+    "emptyState": "No products in this category.",
+    "products": {
+      "howToUse": {
+        "title": "HOW TO USE?",
+        "description": "Check how to use Éclat du teint products"
+      },
+      "ahaBhaPha": {
+        "title": "AHA BHA PHA",
+        "description": "Peeling solution for exfoliation care"
+      },
+      "greenPeeling": {
+        "title": "Green Peeling",
+        "description": "What effects does green peeling have on our skin?"
+      },
+      "seasonalCare": {
+        "title": "Seasonal Skin Care",
+        "description": "Éclat du teint seasonal skincare guide"
+      },
+      "seasonalGuide": {
+        "title": "Seasonal Transition Skincare Guide",
+        "description": "Customized care by skin type"
+      },
+      "realCareCica": {
+        "title": "THE REAL CARE 2-STEP MODELING MASK (CICA)",
+        "description": "CICA & B5 absorption pack"
+      },
+      "realCareGalactomic": {
+        "title": "THE REAL CARE 2-STEP MODELING MASK (Galactomic)",
+        "description": "Galactomic moisture hydration pack"
+      },
+      "realCare": {
+        "title": "THE REAL CARE 2-STEP MODELING MASK",
+        "description": "The Real Care 2-Step Modeling Mask"
+      },
+      "cica85": {
+        "title": "THE REAL 2-STEP MODELING MASK (CICA 85)",
+        "description": "CICA care & moisture soothing"
+      },
+      "doubleCare": {
+        "title": "Double Care Set",
+        "description": "Customized care set by skin type"
+      },
+      "realCareClinic": {
+        "title": "THE REAL CARE 2-STEP at Home",
+        "description": "Professional clinic-level care at home with CICA B5"
+      },
+      "galactomicMoisture": {
+        "title": "Galactomic Moisture Mask",
+        "description": "Double moisture lock with 100x hydration effect"
+      },
+      "cicaAllInOne": {
+        "title": "CICA & B5 All-in-One Pack",
+        "description": "Moisturizing, soothing and regeneration in one product"
+      },
+      "realCareHome": {
+        "title": "Professional Care at Home",
+        "description": "Experience professional spa treatment at home"
+      },
+      "clarifyingVsRelief": {
+        "title": "Clarifying vs Relief Line",
+        "description": "Choose the right product line for your skin"
+      },
+      "troubleCareRoutine": {
+        "title": "Trouble Care Routine",
+        "description": "Effective acne care solution from Éclat du teint"
+      },
+      "reliefSolutionReview": {
+        "title": "Relief Solution - Customer Reviews",
+        "description": "Real results from Relief Solution users"
+      },
+      "reliefLineRoutine": {
+        "title": "Relief Line Routine",
+        "description": "Non-irritating sensitive skin care"
+      },
+      "oilySkinBalance": {
+        "title": "Oily Dehydrated Skin Balance",
+        "description": "Solution for oily but dry skin from inside"
+      },
+      "intensive30Days": {
+        "title": "Intensive 30 Days Program",
+        "description": "Transform your skin in just 30 days"
+      },
+      "hydroBooster247": {
+        "title": "Hydro Booster 247",
+        "description": "24/7 hydration for always glowing skin"
+      },
+      "peelingDuoRoutine": {
+        "title": "Peeling Duo Routine",
+        "description": "Gentle daily, intensive weekly care"
+      },
+      "pureHerbPack": {
+        "title": "Pure Herb Pack",
+        "description": "Weekly exfoliation and pore tightening care"
+      },
+      "biomeBlackSugar": {
+        "title": "Biome Black Sugar Gommage",
+        "description": "Gentle daily exfoliation with black sugar"
+      },
+      "cleanserLineup": {
+        "title": "Cleanser Collection",
+        "description": "Choose the right cleanser for your skin type"
+      }
+    }
   },
   "footer": {
     "companyInfo": "COMPANY INFO",
-    "companyName": "Company Name: Epevia Co., Ltd.",
-    "representative": "Representative: Park Gyu-ri",
+    "companyName": "Corporation (Business Name): (주)에페비아",
+    "representative": "Representative: 박규리",
     "phone": "Phone: 070-4119-3360",
-    "businessNumber": "Business Registration Number: 293-87-02159",
+    "businessNumber": "Business Registration Number: [293-87-02159]",
     "onlineBusinessNumber": "Online Business Registration: 제2022-서울강남-04985호",
-    "privacyOfficer": "Privacy Officer: Park Gyu-ri",
+    "businessVerify": "Verify Business",
+    "privacyOfficer": "Privacy Information Manager: 박규리",
     "email": "Email: eclat.violeta@gmail.com",
-    "address": "Address: 5th Floor, 12 Apgujeong-ro 42-gil, Gangnam-gu, Seoul 06017",
+    "address": "Address: 06017 서울특별시 강남구 압구정로42길 12 (신사동), 5층",
     "terms": "Terms of Use",
     "privacy": "Privacy Policy"
   },
@@ -71,5 +185,68 @@
     "join": "Join",
     "my": "My Account"
   },
-  "cart": "Cart"
+  "cart": "Cart",
+  "brand": {
+    "pageTitle": "Brand Story - Éclat du teint",
+    "pageDescription": "Learn about Éclat du teint, a trusted dermocosmetic brand specializing in sensitive and problematic skin care, recognized by international skin care professionals.",
+    "hero": {
+      "title": "Sensitive Skin is Our Specialty",
+      "subtitle": "Sensitive skin is the specialty of \"Éclat du teint\"."
+    },
+    "intro": {
+      "title": "Sensitive Skin is Our Specialty",
+      "subtitle": "Sensitive skin is the specialty of \"Éclat du teint\".",
+      "paragraph1": "A trusted dermocosmetic for sensitive/troubled skin care, recognized by international dermatology experts, and cooperating with over 2,000 international specialized skin institutions.",
+      "paragraph2": "Through continuous research for post-treatment care and problematic skin management, we have been introducing soothing care products.",
+      "paragraph3": "Our clinical skincare manufactured in Korea is used by dermatologists, plastic surgeons, and medical spas to complement daily home care and aesthetic procedures. We formulate to correct signs of aging, protect healthy skin, and prevent future damage."
+    },
+    "sections": {
+      "professionals": {
+        "title": "The Choice of Doctors and Skincare Professionals",
+        "description": "Doctors and skincare professionals define cosmeceuticals as cutting-edge products between cosmetics and pharmaceuticals. The active ingredients in cosmeceuticals are expected to be clinically proven to enhance skincare efficacy. Éclat du teint products are crafted with elegant formulations for customized skincare regimens, providing scientifically proven skin improvement effects."
+      },
+      "postTreatment": {
+        "title": "Post-Treatment Specialist Brand",
+        "description": "A trusted dermocosmetic for sensitive/troubled skin care, recognized by international dermatology experts, and cooperating with over 2,000 international specialized skin institutions."
+      },
+      "partnership": {
+        "title": "Customized Partnership",
+        "description": "Éclat du teint is partnering with an increasing number of luxury spas. Each spa has its own unique characteristics and preferences, and the Éclat du teint expert team is ready to support all spas. The company's long-term commitment to creating new spas and participation in spas undergoing transformation has prepared us to provide customized solutions and ensure successful transitions."
+      },
+      "customized": {
+        "title": "Customized Partnership",
+        "description": "Éclat du teint is partnering with an increasing number of luxury spas. Each spa has its own unique characteristics and preferences, and the Éclat du teint expert team is ready to support all spas. The company's long-term commitment to creating new spas and participation in spas undergoing transformation has prepared us to provide customized solutions and ensure successful transitions."
+      }
+    },
+    "professionals": {
+      "heading": "The Choice of Doctors and Skincare Professionals",
+      "paragraph1": "Doctors and skincare professionals define cosmeceuticals as cutting-edge products between cosmetics and pharmaceuticals. The active ingredients in cosmeceuticals are expected to be clinically proven to enhance skincare efficacy.",
+      "paragraph2": "Éclat du teint products are crafted with elegant formulations for customized skincare regimens, providing scientifically proven skin improvement effects."
+    },
+    "postTreatment": {
+      "heading": "Post-Treatment Specialist Brand",
+      "paragraph": "A trusted dermocosmetic for sensitive/troubled skin care, recognized by international dermatology experts, and cooperating with over 2,000 international specialized skin institutions.",
+      "institutions": "Cooperating Skin Care Institutions Worldwide"
+    },
+    "partnership": {
+      "heading": "Customized Partnership",
+      "paragraph1": "Éclat du teint is partnering with an increasing number of luxury spas. Each spa has its own unique characteristics and preferences, and the Éclat du teint expert team is ready to support all spas.",
+      "paragraph2": "The company's long-term commitment to creating new spas and participation in spas undergoing transformation has prepared us to provide customized solutions and ensure successful transitions."
+    },
+    "values": {
+      "heading": "Our Core Values",
+      "research": {
+        "title": "Continuous Research",
+        "description": "Through ongoing research, we develop soothing care products for post-treatment care and problematic skin management."
+      },
+      "trust": {
+        "title": "Professional Trust",
+        "description": "Recognized and trusted by dermatologists, plastic surgeons, and skincare professionals worldwide."
+      },
+      "quality": {
+        "title": "Clinical Excellence",
+        "description": "Scientifically proven formulations that deliver real skin improvement results with elegant textures."
+      }
+    }
+  }
 }

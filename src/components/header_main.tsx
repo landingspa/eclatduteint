@@ -53,13 +53,13 @@ export default function HeaderMain() {
 
   return (
     <header
-      className="sticky top-0 z-50 bg-white shadow-sm"
+      className="lg:fixed lg:top-0 lg:left-0 lg:right-0 sticky top-0 z-50 shadow-sm"
       style={{
         fontSize: "11px",
       }}
     >
       {/* Mobile Layout */}
-      <div className="lg:hidden">
+      <div className="lg:hidden bg-white">
         {/* Mobile Logo Bar */}
         <div className="flex items-center justify-center py-4 border-b border-gray-100">
           <Link href="/">
@@ -131,9 +131,12 @@ export default function HeaderMain() {
       </div>
 
       {/* Desktop Layout */}
-      <div className="hidden lg:block">
+      <div
+        className="hidden lg:block"
+        style={{ backgroundColor: "rgba(255, 255, 255, 0.5)" }}
+      >
         {/* Top Bar */}
-        <div className="border-b border-gray-100">
+        <div className="border-b border-gray-200">
           <div className="container mx-auto px-4">
             <div className="flex items-center justify-between h-8">
               {/* Language Switcher */}
@@ -179,7 +182,7 @@ export default function HeaderMain() {
 
         {/* Main Navigation */}
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-15">
+          <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <Link href="/" className="flex items-center">
               <Image

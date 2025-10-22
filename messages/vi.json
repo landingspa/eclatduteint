@@ -50,19 +50,133 @@
   "allProducts": {
     "title": "Tất cả sản phẩm",
     "subtitle": "Tất cả sản phẩm của Éclat du teint",
-    "description": "Đây là sản phẩm được tạo ra thông qua sự quan tâm và nghiên cứu của các chuyên gia chỉ dành riêng cho da.",
-    "viewAll": "Xem tất cả sản phẩm"
+    "desc": "Đây là sản phẩm được tạo ra thông qua sự quan tâm và nghiên cứu của các chuyên gia chỉ dành riêng cho da.",
+    "cta": "Xem tất cả sản phẩm >"
+  },
+  "productsGrid": {
+    "categories": {
+      "all": "Tất cả sản phẩm",
+      "set": "Bộ sản phẩm",
+      "guide": "Hướng dẫn",
+      "peeling": "Tẩy da chết / Làm sạch",
+      "skincare": "Chăm sóc da",
+      "mask": "Mặt nạ / Đắp mặt"
+    },
+    "emptyState": "Không có sản phẩm nào trong danh mục này.",
+    "products": {
+      "howToUse": {
+        "title": "CÁCH SỬ DỤNG?",
+        "description": "Kiểm tra cách sử dụng sản phẩm Éclat du teint"
+      },
+      "ahaBhaPha": {
+        "title": "AHA BHA PHA",
+        "description": "Giải pháp tẩy tế bào chết cho làn da sạch mịn"
+      },
+      "greenPeeling": {
+        "title": "Tẩy da chết xanh",
+        "description": "Tẩy da chết xanh có tác dụng gì đến làn da của chúng ta?"
+      },
+      "seasonalCare": {
+        "title": "Chăm sóc da theo mùa",
+        "description": "Hướng dẫn chăm sóc da theo mùa của Éclat du teint"
+      },
+      "seasonalGuide": {
+        "title": "Hướng dẫn chăm sóc da mùa giao mùa",
+        "description": "Chăm sóc tùy chỉnh theo loại da"
+      },
+      "realCareCica": {
+        "title": "THE REAL CARE MẶT NẠ TẠO HÌNH 2 BƯỚC (CICA)",
+        "description": "Mặt nạ hấp thụ CICA & B5"
+      },
+      "realCareGalactomic": {
+        "title": "THE REAL CARE MẶT NẠ TẠO HÌNH 2 BƯỚC (Galactomic)",
+        "description": "Mặt nạ cấp ẩm Galactomic"
+      },
+      "realCare": {
+        "title": "THE REAL CARE MẶT NẠ TẠO HÌNH 2 BƯỚC",
+        "description": "Mặt nạ tạo hình The Real Care 2 bước"
+      },
+      "cica85": {
+        "title": "MẶT NẠ TẠO HÌNH 2 BƯỚC (CICA 85)",
+        "description": "Chăm sóc CICA & dưỡng ẩm làm dịu"
+      },
+      "doubleCare": {
+        "title": "Bộ chăm sóc kép",
+        "description": "Bộ chăm sóc tùy chỉnh theo loại da"
+      },
+      "realCareClinic": {
+        "title": "THE REAL CARE 2-STEP tại nhà",
+        "description": "Chăm sóc cấp chuyên gia ngay tại nhà với CICA B5"
+      },
+      "galactomicMoisture": {
+        "title": "Mặt nạ cấp ẩm Galactomic",
+        "description": "Khóa ẩm kép với hiệu ứng cấp ẩm gấp 100 lần"
+      },
+      "cicaAllInOne": {
+        "title": "CICA & B5 Mặt nạ đa năng",
+        "description": "Dưỡng ẩm,進정 và tái tạo da trong một sản phẩm"
+      },
+      "realCareHome": {
+        "title": "Chăm sóc chuyên nghiệp tại nhà",
+        "description": "Trải nghiệm spa chuyên nghiệp ngay tại nhà"
+      },
+      "clarifyingVsRelief": {
+        "title": "Clarifying vs Relief Line",
+        "description": "Lựa chọn dòng sản phẩm phù hợp cho da bạn"
+      },
+      "troubleCareRoutine": {
+        "title": "Quy trình chăm sóc da mụn",
+        "description": "Giải pháp chăm sóc da mụn hiệu quả từ Éclat du teint"
+      },
+      "reliefSolutionReview": {
+        "title": "Relief Solution - Đánh giá khách hàng",
+        "description": "Hiệu quả thực tế từ người dùng Relief Solution"
+      },
+      "reliefLineRoutine": {
+        "title": "Quy trình Relief Line",
+        "description": "Chăm sóc da nhạy cảm không kích ứng"
+      },
+      "oilySkinBalance": {
+        "title": "Cân bằng da dầu thiếu ẩm",
+        "description": "Giải pháp cho làn da dầu nhưng khô bên trong"
+      },
+      "intensive30Days": {
+        "title": "Chương trình 30 ngày tập trung",
+        "description": "Thay đổi làn da của bạn chỉ trong 30 ngày"
+      },
+      "hydroBooster247": {
+        "title": "Hydro Booster 247",
+        "description": "Cấp ẩm 24/7 cho làn da luôn rạng rỡ"
+      },
+      "peelingDuoRoutine": {
+        "title": "Quy trình tẩy da chết kép",
+        "description": "Hàng ngày nhẹ nhàng, hàng tuần tập trung"
+      },
+      "pureHerbPack": {
+        "title": "Mặt nạ thảo mộc thuần khiết",
+        "description": "Chăm sóc tẩy da chết và se khít lỗ chân lông hàng tuần"
+      },
+      "biomeBlackSugar": {
+        "title": "Biome Black Sugar Gommage",
+        "description": "Tẩy tế bào chết hàng ngày nhẹ nhàng với đường đen"
+      },
+      "cleanserLineup": {
+        "title": "Bộ sưu tập sữa rửa mặt",
+        "description": "Lựa chọn sữa rửa mặt phù hợp với từng loại da"
+      }
+    }
   },
   "footer": {
     "companyInfo": "THÔNG TIN CÔNG TY",
-    "companyName": "Tên công ty: Công ty TNHH Epevia",
-    "representative": "Đại diện: Park Gyu-ri",
+    "companyName": "Pháp nhân (Tên công ty): (주)에페비아",
+    "representative": "Đại diện: 박규리",
     "phone": "Điện thoại: 070-4119-3360",
-    "businessNumber": "Số đăng ký kinh doanh: 293-87-02159",
-    "onlineBusinessNumber": "Đăng ký bán hàng trực tuyến: 제2022-서울강남-04985호",
-    "privacyOfficer": "Người phụ trách thông tin cá nhân: Park Gyu-ri",
+    "businessNumber": "Số đăng ký kinh doanh: [293-87-02159]",
+    "onlineBusinessNumber": "Đăng ký kinh doanh trực tuyến: 제2022-서울강남-04985호",
+    "businessVerify": "Xác minh doanh nghiệp",
+    "privacyOfficer": "Người phụ trách quản lý thông tin cá nhân: 박규리",
     "email": "Email: eclat.violeta@gmail.com",
-    "address": "Địa chỉ: Tầng 5, 12 Apgujeong-ro 42-gil, Gangnam-gu, Seoul 06017",
+    "address": "Địa chỉ: 06017 서울특별시 강남구 압구정로42길 12 (신사동), 5층",
     "terms": "Điều khoản sử dụng",
     "privacy": "Chính sách bảo mật thông tin cá nhân"
   },
@@ -71,5 +185,68 @@
     "join": "Đăng ký",
     "my": "Tài khoản của tôi"
   },
-  "cart": "Giỏ hàng"
+  "cart": "Giỏ hàng",
+  "brand": {
+    "pageTitle": "Câu chuyện thương hiệu - Éclat du teint",
+    "pageDescription": "Tìm hiểu về Éclat du teint, thương hiệu dermocosmetic đáng tin cậy chuyên chăm sóc da nhạy cảm và da có vấn đề, được các chuyên gia chăm sóc da quốc tế công nhận.",
+    "hero": {
+      "title": "Da Nhạy Cảm Là Chuyên Môn Của Chúng Tôi",
+      "subtitle": "Da nhạy cảm là chuyên môn của \"Éclat du teint\"."
+    },
+    "intro": {
+      "title": "Da Nhạy Cảm Là Chuyên Môn Của Chúng Tôi",
+      "subtitle": "Da nhạy cảm là chuyên môn của \"Éclat du teint\".",
+      "paragraph1": "Dermocosmetic đáng tin cậy cho việc chăm sóc da nhạy cảm/có vấn đề, được các chuyên gia da liễu quốc tế công nhận, và hợp tác với hơn 2.000 cơ sở chuyên khoa da trên toàn thế giới.",
+      "paragraph2": "Thông qua nghiên cứu liên tục cho việc chăm sóc sau điều trị và quản lý da có vấn đề, chúng tôi đã giới thiệu các sản phẩm chăm sóc làm dịu.",
+      "paragraph3": "Sản phẩm chăm sóc da lâm sàng của chúng tôi được sản xuất tại Hàn Quốc, được các bác sĩ da liễu, bác sĩ thẩm mỹ và spa y tế sử dụng để bổ sung cho việc chăm sóc tại nhà hàng ngày và các thủ thuật thẩm mỹ. Chúng tôi phát triển công thức để điều chỉnh dấu hiệu lão hóa, bảo vệ làn da khỏe mạnh và ngăn ngừa tổn thương trong tương lai."
+    },
+    "sections": {
+      "professionals": {
+        "title": "Sự Lựa Chọn Của Bác Sĩ Và Chuyên Gia Chăm Sóc Da",
+        "description": "Các bác sĩ và chuyên gia chăm sóc da định nghĩa cosmeceuticals là sản phẩm tiên tiến nằm giữa mỹ phẩm và dược phẩm. Các thành phần hoạt tính trong cosmeceuticals được kỳ vọng sẽ được chứng minh lâm sàng để nâng cao hiệu quả chăm sóc da. Sản phẩm Éclat du teint được chế tạo với công thức tinh tế cho liệu trình chăm sóc da tùy chỉnh, mang lại hiệu quả cải thiện da được chứng minh khoa học."
+      },
+      "postTreatment": {
+        "title": "Thương Hiệu Chuyên Về Chăm Sóc Sau Điều Trị",
+        "description": "Dermocosmetic đáng tin cậy cho việc chăm sóc da nhạy cảm/có vấn đề, được các chuyên gia da liễu quốc tế công nhận, và hợp tác với hơn 2.000 cơ sở chuyên khoa da trên toàn thế giới."
+      },
+      "partnership": {
+        "title": "Đối Tác Tùy Chỉnh",
+        "description": "Éclat du teint đang hợp tác với ngày càng nhiều spa cao cấp. Mỗi spa có những đặc điểm và sở thích riêng, và đội ngũ chuyên gia Éclat du teint sẵn sàng hỗ trợ tất cả các spa. Cam kết lâu dài của công ty trong việc tạo ra các spa mới và tham gia vào các spa đang trải qua quá trình chuyển đổi đã chuẩn bị cho chúng tôi cung cấp các giải pháp tùy chỉnh và đảm bảo sự chuyển đổi thành công."
+      },
+      "customized": {
+        "title": "Đối Tác Tùy Chỉnh",
+        "description": "Éclat du teint đang hợp tác với ngày càng nhiều spa cao cấp. Mỗi spa có những đặc điểm và sở thích riêng, và đội ngũ chuyên gia Éclat du teint sẵn sàng hỗ trợ tất cả các spa. Cam kết lâu dài của công ty trong việc tạo ra các spa mới và tham gia vào các spa đang trải qua quá trình chuyển đổi đã chuẩn bị cho chúng tôi cung cấp các giải pháp tùy chỉnh và đảm bảo sự chuyển đổi thành công."
+      }
+    },
+    "professionals": {
+      "heading": "Sự Lựa Chọn Của Bác Sĩ Và Chuyên Gia Chăm Sóc Da",
+      "paragraph1": "Các bác sĩ và chuyên gia chăm sóc da định nghĩa cosmeceuticals là sản phẩm tiên tiến nằm giữa mỹ phẩm và dược phẩm. Các thành phần hoạt tính trong cosmeceuticals được kỳ vọng sẽ được chứng minh lâm sàng để nâng cao hiệu quả chăm sóc da.",
+      "paragraph2": "Sản phẩm Éclat du teint được chế tạo với công thức tinh tế cho liệu trình chăm sóc da tùy chỉnh, mang lại hiệu quả cải thiện da được chứng minh khoa học."
+    },
+    "postTreatment": {
+      "heading": "Thương Hiệu Chuyên Về Chăm Sóc Sau Điều Trị",
+      "paragraph": "Dermocosmetic đáng tin cậy cho việc chăm sóc da nhạy cảm/có vấn đề, được các chuyên gia da liễu quốc tế công nhận, và hợp tác với hơn 2.000 cơ sở chuyên khoa da trên toàn thế giới.",
+      "institutions": "Cơ Sở Chăm Sóc Da Hợp Tác Trên Toàn Thế Giới"
+    },
+    "partnership": {
+      "heading": "Đối Tác Tùy Chỉnh",
+      "paragraph1": "Éclat du teint đang hợp tác với ngày càng nhiều spa cao cấp. Mỗi spa có những đặc điểm và sở thích riêng, và đội ngũ chuyên gia Éclat du teint sẵn sàng hỗ trợ tất cả các spa.",
+      "paragraph2": "Cam kết lâu dài của công ty trong việc tạo ra các spa mới và tham gia vào các spa đang trải qua quá trình chuyển đổi đã chuẩn bị cho chúng tôi cung cấp các giải pháp tùy chỉnh và đảm bảo sự chuyển đổi thành công."
+    },
+    "values": {
+      "heading": "Giá Trị Cốt Lõi Của Chúng Tôi",
+      "research": {
+        "title": "Nghiên Cứu Liên Tục",
+        "description": "Thông qua nghiên cứu liên tục, chúng tôi phát triển các sản phẩm chăm sóc làm dịu cho việc chăm sóc sau điều trị và quản lý da có vấn đề."
+      },
+      "trust": {
+        "title": "Tin Cậy Chuyên Nghiệp",
+        "description": "Được các bác sĩ da liễu, bác sĩ thẩm mỹ và chuyên gia chăm sóc da trên toàn thế giới công nhận và tin tưởng."
+      },
+      "quality": {
+        "title": "Xuất Sắc Lâm Sàng",
+        "description": "Công thức được chứng minh khoa học mang lại kết quả cải thiện da thực sự với kết cấu tinh tế."
+      }
+    }
+  }
 }

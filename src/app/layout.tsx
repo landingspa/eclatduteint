@@ -3,6 +3,7 @@ import { Noto_Sans, Noto_Sans_KR } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getLocale } from "next-intl/server";
 import HeaderMain from "@/components/header_main";
+import Footer from "@/components/footer";
 import "./globals.css";
 
 const notoSans = Noto_Sans({
@@ -47,6 +48,7 @@ export default async function RootLayout({
         <NextIntlClientProvider messages={messages}>
           <HeaderMain />
           {children}
+          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>
