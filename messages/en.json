@@ -186,6 +186,370 @@
     "my": "My Account"
   },
   "cart": "Cart",
+  "education": {
+    "pageTitle": "Product Training - Éclat du teint",
+    "pageDescription": "Apply for Éclat du teint product training. Learn about our products and skincare expertise.",
+    "hero": {
+      "title": "Product Training",
+      "subtitle": "Apply for Éclat du teint Product Training"
+    },
+    "intro": {
+      "greeting": "Hello,",
+      "thankYou": "Thank you for your interest in Éclat du teint training application."
+    },
+    "schedule": {
+      "title": "Training Schedule",
+      "current": "Currently, Éclat du teint training is",
+      "timing": "held every first and third Wednesday of each month,",
+      "contact": "Please contact the official Éclat du teint KakaoTalk channel",
+      "inquiry": "for related inquiries.",
+      "notice": "(Due to company circumstances, regular training schedules may change and will be announced later. Thank you for your understanding in advance.)"
+    },
+    "details": {
+      "location": "Training Location",
+      "locationAddress": "5th Floor, 12 Apgujeong-ro 42-gil, Gangnam-gu, Seoul (Sinsa-dong)",
+      "datetime": "Training Date & Time",
+      "datetimeInfo": "Every first and third Wednesday of each month, 10:00 AM ~ 1:00 PM"
+    },
+    "application": {
+      "title": "Easy Training Application",
+      "instruction": "Press the 'KakaoTalk' icon above to apply for training easily and quickly.",
+      "tip": "If you leave a message saying 'Inquiry about Éclat du teint product training application', faster response is possible."
+    }
+  },
+  "purpleLine": {
+    "pageTitle": "The Purple Line - Éclat du teint",
+    "pageDescription": "Discover Éclat du teint 'The Purple Line' - A premium package designed exclusively for professionals.",
+    "hero": {
+      "title": "Éclat du teint 'The Purple Line'",
+      "subtitle": "Éclat du teint Purple Line"
+    },
+    "intro": {
+      "description": "Experience the exclusive benefits available only to official Purple Line partners."
+    },
+    "membership": {
+      "title": "MEMBERSHIP PACKAGE CATEGORY",
+      "subtitle": "Éclat du teint Official Certification Benefits"
+    },
+    "signboard": {
+      "label": "The Purple Line_01",
+      "notice": "This signboard is currently being prepared. Thank you for your understanding.",
+      "title": "OFFICIAL MEMBERSHIP SIGNBOARD",
+      "subtitle": "Éclat du teint Official Certification Signboard",
+      "description": "Official partners of Éclat du teint will receive an official certification signboard. Enjoy enhanced professionalism and symbolism.",
+      "button": "View More"
+    },
+    "poster": {
+      "label": "The Purple Line_02",
+      "title": "POSTER",
+      "subtitle": "Éclat du teint Poster",
+      "description": "Elevate your treatment room's interior quality with various poster designs from Éclat du teint.",
+      "button": "View More"
+    },
+    "banner": {
+      "label": "The Purple Line_03",
+      "title": "X-BANNER & MINI BANNER",
+      "subtitle": "Éclat du teint X-Banner & Mini Banner",
+      "description": "Place banners that elevate the elegance of your skin care facility, both inside and outside.",
+      "button": "View More"
+    },
+    "brochure": {
+      "label": "The Purple Line_04",
+      "title": "BROCHURE",
+      "subtitle": "Éclat du teint Brochure",
+      "description": "All products are contained in one brochure. Easily convey product information to your customers with just one brochure.",
+      "button": "View More"
+    },
+    "shoppingBag": {
+      "label": "The Purple Line_05",
+      "title": "SHOPPING BAG",
+      "subtitle": "Éclat du teint Shopping Bag",
+      "description": "Deliver the value of the product to customers with Éclat du teint shopping bags.",
+      "button": "View More"
+    },
+    "contact": {
+      "title": "CONTACT US",
+      "subtitle": "Éclat du teint Official Partner Inquiry",
+      "description": "Press the 'KakaoTalk' icon to inquire easily and quickly. If you leave a message saying 'Éclat du teint official partner inquiry', we will kindly answer you.",
+      "button": "Contact us"
+    }
+  },
+  "signboardPage": {
+    "pageTitle": "Official Membership Signboard - Éclat du teint",
+    "pageDescription": "Discover the official membership signboard for Éclat du teint partners. Enhance professionalism and symbolism for your establishment.",
+    "hero": {
+      "notice": "This signboard is currently being prepared. Thank you for your understanding.",
+      "label": "The Purple Line_01",
+      "title": "OFFICIAL MEMBERSHIP SIGNBOARD",
+      "subtitle": "Éclat du teint Official Certification Signboard",
+      "description": "Official partners of Éclat du teint will receive an official certification signboard. Enjoy enhanced professionalism and symbolism."
+    },
+    "relatedProducts": {
+      "signboard": {
+        "notice": "The Purple Line_01",
+        "title": "Éclat du teint Official Certification Signboard",
+        "subtitle": "SIGNBOARD"
+      },
+      "poster": {
+        "notice": "The Purple Line_02",
+        "title": "Éclat du teint Poster",
+        "subtitle": "POSTER"
+      },
+      "banner": {
+        "notice": "The Purple Line_03",
+        "title": "Éclat du teint X-Banner & Mini Banner",
+        "subtitle": "X-BANNER & MINI BANNER"
+      },
+      "brochure": {
+        "notice": "The Purple Line_04",
+        "title": "Éclat du teint Brochure",
+        "subtitle": "BROCHURE"
+      },
+      "shoppingBag": {
+        "notice": "The Purple Line_05",
+        "title": "Éclat du teint Shopping Bag",
+        "subtitle": "SHOPPING BAG"
+      }
+    },
+    "contact": {
+      "title": "CONTACT US",
+      "subtitle": "Éclat du teint Official Partner Inquiry",
+      "description": "Press the 'KakaoTalk' icon to inquire easily and quickly.",
+      "descriptionLine2": "If you leave a message saying 'Éclat du teint official partner inquiry', we will kindly answer you.",
+      "button": "Contact us"
+    }
+  },
+  "posterPage": {
+    "pageTitle": "Poster - Éclat du teint",
+    "pageDescription": "Elevate your treatment room's interior quality with various poster designs from Éclat du teint.",
+    "hero": {
+      "notice": "The Purple Line_02",
+      "title": "POSTER",
+      "subtitle": "Éclat du teint Poster",
+      "description": "Elevate your treatment room's interior quality",
+      "descriptionLine2": "with various poster designs from Éclat du teint."
+    },
+    "productInfo": {
+      "title": "Check out the various designs of Éclat du teint posters.",
+      "description": "If you are receiving a free gift, please select a design and send it to us,",
+      "descriptionLine2": "and we will produce the actual product and send it to the management office.",
+      "sizeNote": "If you have a desired poster size, please include it when requesting a poster.",
+      "sizeDescription": "Please note that if you do not have a preferred size, the default size of A1 will be provided."
+    },
+    "relatedProducts": {
+      "signboard": {
+        "notice": "The Purple Line_01",
+        "title": "Éclat du teint Official Certification Signboard",
+        "subtitle": "SIGNBOARD"
+      },
+      "poster": {
+        "notice": "The Purple Line_02",
+        "title": "Éclat du teint Poster",
+        "subtitle": "POSTER"
+      },
+      "banner": {
+        "notice": "The Purple Line_03",
+        "title": "Éclat du teint X-Banner & Mini Banner",
+        "subtitle": "X-BANNER & MINI BANNER"
+      },
+      "brochure": {
+        "notice": "The Purple Line_04",
+        "title": "Éclat du teint Brochure",
+        "subtitle": "BROCHURE"
+      },
+      "shoppingBag": {
+        "notice": "The Purple Line_05",
+        "title": "Éclat du teint Shopping Bag",
+        "subtitle": "SHOPPING BAG"
+      }
+    },
+    "contact": {
+      "title": "CONTACT US",
+      "subtitle": "Éclat du teint Official Partner Inquiry",
+      "description": "Press the 'KakaoTalk' icon to inquire easily and quickly.",
+      "descriptionLine2": "If you leave a message saying 'Éclat du teint official partner inquiry', we will kindly answer you."
+    }
+  },
+  "shoppingBagPage": {
+    "pageTitle": "Shopping Bag - Éclat du teint",
+    "pageDescription": "Deliver the value of your products to customers with Éclat du teint shopping bags.",
+    "hero": {
+      "notice": "The Purple Line_05",
+      "title": "SHOPPING BAG",
+      "subtitle": "Éclat du teint Shopping Bag",
+      "description": "Deliver the value of your products to customers with Éclat du teint shopping bags."
+    },
+    "relatedProducts": {
+      "signboard": {
+        "notice": "The Purple Line_01",
+        "title": "Éclat du teint Official Certification Signboard",
+        "subtitle": "SIGNBOARD"
+      },
+      "poster": {
+        "notice": "The Purple Line_02",
+        "title": "Éclat du teint Poster",
+        "subtitle": "POSTER"
+      },
+      "banner": {
+        "notice": "The Purple Line_03",
+        "title": "Éclat du teint X-Banner & Mini Banner",
+        "subtitle": "X-BANNER & MINI BANNER"
+      },
+      "brochure": {
+        "notice": "The Purple Line_04",
+        "title": "Éclat du teint Brochure",
+        "subtitle": "BROCHURE"
+      },
+      "shoppingBag": {
+        "notice": "The Purple Line_05",
+        "title": "Éclat du teint Shopping Bag",
+        "subtitle": "SHOPPING BAG"
+      }
+    },
+    "contact": {
+      "title": "CONTACT US",
+      "subtitle": "Éclat du teint Official Partner Inquiry",
+      "description": "Press the 'KakaoTalk' icon to inquire easily and quickly.",
+      "descriptionLine2": "If you leave a message saying 'Éclat du teint official partner inquiry', we will kindly answer you."
+    }
+  },
+  "brochurePage": {
+    "pageTitle": "Brochure - Éclat du teint",
+    "pageDescription": "All products are packaged in one brochure. Convey product information to your customers more easily with just one brochure.",
+    "hero": {
+      "notice": "The Purple Line_04",
+      "title": "BROCHURE",
+      "subtitle": "Éclat du teint Brochure",
+      "description": "All products are packaged in one brochure.",
+      "descriptionLine2": "Convey product information to your customers more easily with just one brochure."
+    },
+    "relatedProducts": {
+      "signboard": {
+        "notice": "The Purple Line_01",
+        "title": "Éclat du teint Official Certification Signboard",
+        "subtitle": "SIGNBOARD"
+      },
+      "poster": {
+        "notice": "The Purple Line_02",
+        "title": "Éclat du teint Poster",
+        "subtitle": "POSTER"
+      },
+      "banner": {
+        "notice": "The Purple Line_03",
+        "title": "Éclat du teint X-Banner & Mini Banner",
+        "subtitle": "X-BANNER & MINI BANNER"
+      },
+      "brochure": {
+        "notice": "The Purple Line_04",
+        "title": "Éclat du teint Brochure",
+        "subtitle": "BROCHURE"
+      },
+      "shoppingBag": {
+        "notice": "The Purple Line_05",
+        "title": "Éclat du teint Shopping Bag",
+        "subtitle": "SHOPPING BAG"
+      }
+    },
+    "contact": {
+      "title": "CONTACT US",
+      "subtitle": "Éclat du teint Official Partner Inquiry",
+      "description": "Press the 'KakaoTalk' icon to inquire easily and quickly.",
+      "descriptionLine2": "If you leave a message saying 'Éclat du teint official partner inquiry', we will kindly answer you."
+    }
+  },
+  "bannerPage": {
+    "pageTitle": "X-Banner & Mini Banner - Éclat du teint",
+    "pageDescription": "Place banners that elevate the elegance of your skin care facility, both inside and outside.",
+    "hero": {
+      "notice": "The Purple Line_03",
+      "title": "X-BANNER & MINI BANNER",
+      "subtitle": "Éclat du teint X-Banner & Mini Banner",
+      "description": "Place banners that elevate the elegance of your skin care facility, both inside and outside."
+    },
+    "galleryInfo": {
+      "title": "Check out the various X-Banner and Mini Banner designs of Éclat du teint.",
+      "description": "If you are receiving a free gift, please select a design and send it to us,",
+      "descriptionLine2": "and we will produce the actual product and send it to the management office.",
+      "xBannerTitle": "X-Banner(Size : 60*180cm)",
+      "miniBannerTitle": "Mini Banner(Size : 15*30cm)"
+    },
+    "relatedProducts": {
+      "signboard": {
+        "notice": "The Purple Line_01",
+        "title": "Éclat du teint Official Certification Signboard",
+        "subtitle": "SIGNBOARD"
+      },
+      "poster": {
+        "notice": "The Purple Line_02",
+        "title": "Éclat du teint Poster",
+        "subtitle": "POSTER"
+      },
+      "banner": {
+        "notice": "The Purple Line_03",
+        "title": "Éclat du teint X-Banner & Mini Banner",
+        "subtitle": "X-BANNER & MINI BANNER"
+      },
+      "brochure": {
+        "notice": "The Purple Line_04",
+        "title": "Éclat du teint Brochure",
+        "subtitle": "BROCHURE"
+      },
+      "shoppingBag": {
+        "notice": "The Purple Line_05",
+        "title": "Éclat du teint Shopping Bag",
+        "subtitle": "SHOPPING BAG"
+      }
+    },
+    "contact": {
+      "title": "CONTACT US",
+      "subtitle": "Éclat du teint Official Partner Inquiry",
+      "description": "Press the 'KakaoTalk' icon to inquire easily and quickly.",
+      "descriptionLine2": "If you leave a message saying 'Éclat du teint official partner inquiry', we will kindly answer you."
+    }
+  },
+  "videoContent": {
+    "pageTitle": "Video Content - Éclat du teint",
+    "pageDescription": "Providing valuable information about customized skin care for Éclat du teint product users.",
+    "hero": {
+      "title": "Video Content",
+      "subtitle": "Éclat du teint Video Content",
+      "description": "Providing valuable information about customized skin care",
+      "descriptionLine2": "for Éclat du teint product users."
+    },
+    "header": {
+      "title": "Video Content",
+      "count": "6"
+    },
+    "meta": {
+      "views": "Views"
+    },
+    "videos": {
+      "1": {
+        "title": "Super Antioxidant Age Interrupter Cream",
+        "description": "Daily Alfalfa Firming Cream"
+      },
+      "2": {
+        "title": "[SHORT] Micro Natural Spicule Labofill",
+        "description": "Spicules that regenerate skin by utilizing the skin's immune response"
+      },
+      "3": {
+        "title": "Probiotic Toner, The First Thing To Apply On Skin After Cleansing",
+        "description": "Hydrating Toner & Essence Containing Cellditox And Probiotics"
+      },
+      "4": {
+        "title": "Daily Care With Hydrating Ampoule + Regenerating Cream",
+        "description": "Glowing Dewy Skin Anytime, Anywhere"
+      },
+      "5": {
+        "title": "Oxygen Bubble Trouble Mummy Care",
+        "description": "Emergency Hydration Program For Severely Dry + Ultra Sensitive Skin"
+      },
+      "6": {
+        "title": "[FULL] Micro Natural Spicule Labofill",
+        "description": "Spicules that regenerate skin by utilizing the skin's immune response"
+      }
+    }
+  },
   "brand": {
     "pageTitle": "Brand Story - Éclat du teint",
     "pageDescription": "Learn about Éclat du teint, a trusted dermocosmetic brand specializing in sensitive and problematic skin care, recognized by international skin care professionals.",
@@ -248,5 +612,95 @@
         "description": "Scientifically proven formulations that deliver real skin improvement results with elegant textures."
       }
     }
+  },
+  "contactPage": {
+    "pageTitle": "Contact - Q&A - Éclat du teint",
+    "pageDescription": "Contact Éclat du teint through our official KakaoTalk channel for quick support.",
+    "hero": {
+      "title": "Q&A",
+      "description": "Website inquiries are difficult to check, so please",
+      "kakaoHighlight": "contact us through Éclat du teint's official KakaoTalk channel",
+      "descriptionEnd": "for quick assistance."
+    },
+    "board": {
+      "title": "Q&A",
+      "count": "115",
+      "writeButton": "Write",
+      "notice": "For quick support, please contact us via",
+      "kakaoLink": "Official KakaoTalk Channel",
+      "placeholder": "Q&A Board",
+      "tableHeaders": {
+        "title": "Title",
+        "author": "Author",
+        "date": "Date",
+        "views": "Views",
+        "likes": "Likes"
+      }
+    },
+    "posts": {
+      "secret": "Secret Post"
+    }
+  },
+  "productsPage": {
+    "pageTitle": "All Products - Éclat du teint",
+    "pageDescription": "Discover all professional skincare products from Éclat du teint.",
+    "hero": {
+      "title": "All Products",
+      "subtitle": "All Products of Éclat du teint",
+      "description": {
+        "line1": "Products created through research and dedication",
+        "line2": "by experts solely focused on skin care."
+      }
+    },
+    "categories": {
+      "all": "All Products",
+      "sets": "Product Sets",
+      "cleansing": "Cleansing",
+      "toner": "Skin / Toner",
+      "peeling": "Peeling / Scaling",
+      "serum": "Serum / Ampoule",
+      "lotion": "Lotion / Cream",
+      "mask": "Mask / Pack",
+      "kit": "Kit / Makeup",
+      "tools": "Tools"
+    },
+    "labels": {
+      "sale": "SALE",
+      "reviews": "Reviews",
+      "likes": "Likes",
+      "cart": "Cart",
+      "currency": "$"
+    }
+  },
+  "productDetail": {
+    "reviews": "reviews",
+    "saved": "You save",
+    "quantity": "Quantity",
+    "total": "Total",
+    "addToCart": "Add to Cart",
+    "buyNow": "Buy Now",
+    "addToWishlist": "Add to Wishlist",
+    "features": {
+      "freeShipping": {
+        "title": "Free Shipping",
+        "desc": "Free shipping on orders over 50,000₩"
+      },
+      "authentic": {
+        "title": "100% Authentic",
+        "desc": "Guaranteed genuine Éclat du teint products"
+      },
+      "support": {
+        "title": "24/7 Support",
+        "desc": "Customer support available anytime"
+      }
+    },
+    "tabs": {
+      "description": "Description",
+      "ingredients": "Ingredients",
+      "howToUse": "How to Use",
+      "reviews": "Reviews"
+    },
+    "descriptionPlaceholder": "This is a premium skincare product from Éclat du teint, formulated with carefully selected ingredients to provide optimal care for your skin. Developed through extensive research and testing, this product delivers visible results while maintaining the gentleness needed for sensitive skin.",
+    "relatedProducts": "Related Products"
   }
 }

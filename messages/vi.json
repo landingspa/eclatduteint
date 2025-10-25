@@ -186,6 +186,370 @@
     "my": "Tài khoản của tôi"
   },
   "cart": "Giỏ hàng",
+  "education": {
+    "pageTitle": "Đào Tạo Sản Phẩm - Éclat du teint",
+    "pageDescription": "Đăng ký đào tạo sản phẩm Éclat du teint. Tìm hiểu về sản phẩm và chuyên môn chăm sóc da của chúng tôi.",
+    "hero": {
+      "title": "Đào Tạo Sản Phẩm",
+      "subtitle": "Đăng Ký Đào Tạo Sản Phẩm Éclat du teint"
+    },
+    "intro": {
+      "greeting": "Xin chào,",
+      "thankYou": "Cảm ơn bạn đã quan tâm đến đơn đăng ký đào tạo Éclat du teint."
+    },
+    "schedule": {
+      "title": "Lịch Đào Tạo",
+      "current": "Hiện tại, đào tạo Éclat du teint được",
+      "timing": "tổ chức vào thứ Tư tuần đầu tiên và tuần thứ ba của mỗi tháng,",
+      "contact": "Vui lòng liên hệ kênh KakaoTalk chính thức của Éclat du teint",
+      "inquiry": "để được tư vấn chi tiết.",
+      "notice": "(Do hoàn cảnh công ty, lịch đào tạo định kỳ có thể thay đổi và sẽ được thông báo sau. Xin cảm ơn sự thông cảm của bạn.)"
+    },
+    "details": {
+      "location": "Địa Điểm Đào Tạo",
+      "locationAddress": "Tầng 5, 12 Apgujeong-ro 42-gil, Gangnam-gu, Seoul (Sinsa-dong)",
+      "datetime": "Ngày Giờ Đào Tạo",
+      "datetimeInfo": "Thứ Tư tuần đầu tiên và tuần thứ ba hàng tháng, 10:00 Sáng ~ 1:00 Chiều"
+    },
+    "application": {
+      "title": "Đăng Ký Đào Tạo Dễ Dàng",
+      "instruction": "Nhấn vào biểu tượng 'KakaoTalk' phía trên để đăng ký đào tạo dễ dàng và nhanh chóng.",
+      "tip": "Nếu bạn để lại tin nhắn 'Câu hỏi về đơn đăng ký đào tạo sản phẩm Éclat du teint', chúng tôi sẽ phản hồi nhanh hơn."
+    }
+  },
+  "purpleLine": {
+    "pageTitle": "The Purple Line - Éclat du teint",
+    "pageDescription": "Khám phá Éclat du teint 'The Purple Line' - Gói sản phẩm cao cấp được thiết kế riêng dành cho các chuyên gia.",
+    "hero": {
+      "title": "Éclat du teint 'The Purple Line'",
+      "subtitle": "Dòng Sản Phẩm Cao Cấp Éclat du teint"
+    },
+    "intro": {
+      "description": "Trải nghiệm những ưu đãi độc quyền chỉ dành cho đối tác chính thức của Purple Line."
+    },
+    "membership": {
+      "title": "DANH MỤC GÓI THÀNH VIÊN",
+      "subtitle": "Ưu Đãi Chứng Nhận Chính Thức Éclat du teint"
+    },
+    "signboard": {
+      "label": "The Purple Line_01",
+      "notice": "Biển hiệu này hiện đang được chuẩn bị. Xin cảm ơn sự thông cảm của bạn.",
+      "title": "BIỂN HIỆU THÀNH VIÊN CHÍNH THỨC",
+      "subtitle": "Biển Hiệu Chứng Nhận Chính Thức Éclat du teint",
+      "description": "Các đối tác chính thức của Éclat du teint sẽ nhận được biển hiệu chứng nhận chính thức. Tận hưởng tính chuyên nghiệp và biểu tượng nâng cao.",
+      "button": "Xem Thêm"
+    },
+    "poster": {
+      "label": "The Purple Line_02",
+      "title": "POSTER",
+      "subtitle": "Poster Éclat du teint",
+      "description": "Nâng cao chất lượng nội thất phòng điều trị của bạn với các thiết kế poster đa dạng từ Éclat du teint.",
+      "button": "Xem Thêm"
+    },
+    "banner": {
+      "label": "The Purple Line_03",
+      "title": "X-BANNER & MINI BANNER",
+      "subtitle": "X-Banner & Mini Banner Éclat du teint",
+      "description": "Đặt các banner nâng cao sự sang trọng của cơ sở chăm sóc da của bạn, cả bên trong và bên ngoài.",
+      "button": "Xem Thêm"
+    },
+    "brochure": {
+      "label": "The Purple Line_04",
+      "title": "BROCHURE",
+      "subtitle": "Brochure Éclat du teint",
+      "description": "Tất cả sản phẩm được chứa trong một brochure. Dễ dàng truyền tải thông tin sản phẩm đến khách hàng của bạn chỉ với một brochure.",
+      "button": "Xem Thêm"
+    },
+    "shoppingBag": {
+      "label": "The Purple Line_05",
+      "title": "SHOPPING BAG",
+      "subtitle": "Túi Mua Sắm Éclat du teint",
+      "description": "Chuyển tải giá trị của sản phẩm đến khách hàng với túi mua sắm Éclat du teint.",
+      "button": "Xem Thêm"
+    },
+    "contact": {
+      "title": "LIÊN HỆ CHÚNG TÔI",
+      "subtitle": "Liên Hệ Đối Tác Chính Thức Éclat du teint",
+      "description": "Nhấn vào biểu tượng 'KakaoTalk' để liên hệ dễ dàng và nhanh chóng. Nếu bạn để lại tin nhắn 'Liên hệ đối tác chính thức Éclat du teint', chúng tôi sẽ trả lời bạn một cách chu đáo.",
+      "button": "Liên hệ chúng tôi"
+    }
+  },
+  "signboardPage": {
+    "pageTitle": "Biển Hiệu Thành Viên Chính Thức - Éclat du teint",
+    "pageDescription": "Khám phá biển hiệu thành viên chính thức dành cho đối tác Éclat du teint. Nâng cao tính chuyên nghiệp và biểu tượng cho cơ sở của bạn.",
+    "hero": {
+      "notice": "Biển hiệu này hiện đang được chuẩn bị. Xin cảm ơn sự thông cảm của bạn.",
+      "label": "The Purple Line_01",
+      "title": "BIỂN HIỆU THÀNH VIÊN CHÍNH THỨC",
+      "subtitle": "Biển Hiệu Chứng Nhận Chính Thức Éclat du teint",
+      "description": "Các đối tác chính thức của Éclat du teint sẽ nhận được biển hiệu chứng nhận chính thức. Tận hưởng tính chuyên nghiệp và biểu tượng nâng cao."
+    },
+    "relatedProducts": {
+      "signboard": {
+        "notice": "The Purple Line_01",
+        "title": "Biển Hiệu Chứng Nhận Chính Thức Éclat du teint",
+        "subtitle": "SIGNBOARD"
+      },
+      "poster": {
+        "notice": "The Purple Line_02",
+        "title": "Poster Éclat du teint",
+        "subtitle": "POSTER"
+      },
+      "banner": {
+        "notice": "The Purple Line_03",
+        "title": "X-Banner & Mini Banner Éclat du teint",
+        "subtitle": "X-BANNER & MINI BANNER"
+      },
+      "brochure": {
+        "notice": "The Purple Line_04",
+        "title": "Brochure Éclat du teint",
+        "subtitle": "BROCHURE"
+      },
+      "shoppingBag": {
+        "notice": "The Purple Line_05",
+        "title": "Túi Mua Sắm Éclat du teint",
+        "subtitle": "SHOPPING BAG"
+      }
+    },
+    "contact": {
+      "title": "LIÊN HỆ CHÚNG TÔI",
+      "subtitle": "Liên Hệ Đối Tác Chính Thức Éclat du teint",
+      "description": "Nhấn vào biểu tượng 'KakaoTalk' để liên hệ dễ dàng và nhanh chóng.",
+      "descriptionLine2": "Nếu bạn để lại tin nhắn 'Liên hệ đối tác chính thức Éclat du teint', chúng tôi sẽ trả lời bạn một cách chu đáo.",
+      "button": "Liên hệ chúng tôi"
+    }
+  },
+  "posterPage": {
+    "pageTitle": "Poster - Éclat du teint",
+    "pageDescription": "Nâng cao chất lượng nội thất phòng điều trị của bạn với các thiết kế poster đa dạng từ Éclat du teint.",
+    "hero": {
+      "notice": "The Purple Line_02",
+      "title": "POSTER",
+      "subtitle": "Poster Éclat du teint",
+      "description": "Nâng cao chất lượng nội thất phòng điều trị của bạn",
+      "descriptionLine2": "với các thiết kế poster đa dạng từ Éclat du teint."
+    },
+    "productInfo": {
+      "title": "Khám phá các thiết kế poster đa dạng của Éclat du teint.",
+      "description": "Nếu bạn nhận quà tặng miễn phí, vui lòng chọn thiết kế và gửi cho chúng tôi,",
+      "descriptionLine2": "chúng tôi sẽ sản xuất sản phẩm thực tế và gửi đến văn phòng quản lý.",
+      "sizeNote": "Nếu bạn có kích thước poster mong muốn, vui lòng nêu rõ khi yêu cầu poster.",
+      "sizeDescription": "Xin lưu ý rằng nếu bạn không có kích thước ưa thích, kích thước mặc định A1 sẽ được cung cấp."
+    },
+    "relatedProducts": {
+      "signboard": {
+        "notice": "The Purple Line_01",
+        "title": "Biển Hiệu Chứng Nhận Chính Thức Éclat du teint",
+        "subtitle": "SIGNBOARD"
+      },
+      "poster": {
+        "notice": "The Purple Line_02",
+        "title": "Poster Éclat du teint",
+        "subtitle": "POSTER"
+      },
+      "banner": {
+        "notice": "The Purple Line_03",
+        "title": "X-Banner & Mini Banner Éclat du teint",
+        "subtitle": "X-BANNER & MINI BANNER"
+      },
+      "brochure": {
+        "notice": "The Purple Line_04",
+        "title": "Brochure Éclat du teint",
+        "subtitle": "BROCHURE"
+      },
+      "shoppingBag": {
+        "notice": "The Purple Line_05",
+        "title": "Túi Mua Sắm Éclat du teint",
+        "subtitle": "SHOPPING BAG"
+      }
+    },
+    "contact": {
+      "title": "LIÊN HỆ CHÚNG TÔI",
+      "subtitle": "Liên Hệ Đối Tác Chính Thức Éclat du teint",
+      "description": "Nhấn vào biểu tượng 'KakaoTalk' để liên hệ dễ dàng và nhanh chóng.",
+      "descriptionLine2": "Nếu bạn để lại tin nhắn 'Liên hệ đối tác chính thức Éclat du teint', chúng tôi sẽ trả lời bạn một cách chu đáo."
+    }
+  },
+  "shoppingBagPage": {
+    "pageTitle": "Túi Mua Sắm - Éclat du teint",
+    "pageDescription": "Truyền tải giá trị sản phẩm đến khách hàng của bạn với túi mua sắm Éclat du teint.",
+    "hero": {
+      "notice": "The Purple Line_05",
+      "title": "SHOPPING BAG",
+      "subtitle": "Túi Mua Sắm Éclat du teint",
+      "description": "Truyền tải giá trị sản phẩm đến khách hàng của bạn với túi mua sắm Éclat du teint."
+    },
+    "relatedProducts": {
+      "signboard": {
+        "notice": "The Purple Line_01",
+        "title": "Biển Hiệu Chứng Nhận Chính Thức Éclat du teint",
+        "subtitle": "SIGNBOARD"
+      },
+      "poster": {
+        "notice": "The Purple Line_02",
+        "title": "Poster Éclat du teint",
+        "subtitle": "POSTER"
+      },
+      "banner": {
+        "notice": "The Purple Line_03",
+        "title": "X-Banner & Mini Banner Éclat du teint",
+        "subtitle": "X-BANNER & MINI BANNER"
+      },
+      "brochure": {
+        "notice": "The Purple Line_04",
+        "title": "Brochure Éclat du teint",
+        "subtitle": "BROCHURE"
+      },
+      "shoppingBag": {
+        "notice": "The Purple Line_05",
+        "title": "Túi Mua Sắm Éclat du teint",
+        "subtitle": "SHOPPING BAG"
+      }
+    },
+    "contact": {
+      "title": "LIÊN HỆ CHÚNG TÔI",
+      "subtitle": "Liên Hệ Đối Tác Chính Thức Éclat du teint",
+      "description": "Nhấn vào biểu tượng 'KakaoTalk' để liên hệ dễ dàng và nhanh chóng.",
+      "descriptionLine2": "Nếu bạn để lại tin nhắn 'Liên hệ đối tác chính thức Éclat du teint', chúng tôi sẽ trả lời bạn một cách chu đáo."
+    }
+  },
+  "brochurePage": {
+    "pageTitle": "Brochure - Éclat du teint",
+    "pageDescription": "Tất cả sản phẩm được đóng gói trong một brochure. Truyền đạt nội dung sản phẩm đến khách hàng của bạn dễ dàng hơn chỉ với một brochure.",
+    "hero": {
+      "notice": "The Purple Line_04",
+      "title": "BROCHURE",
+      "subtitle": "Brochure Éclat du teint",
+      "description": "Tất cả sản phẩm được đóng gói trong một brochure.",
+      "descriptionLine2": "Truyền đạt nội dung sản phẩm đến khách hàng của bạn dễ dàng hơn chỉ với một brochure."
+    },
+    "relatedProducts": {
+      "signboard": {
+        "notice": "The Purple Line_01",
+        "title": "Biển Hiệu Chứng Nhận Chính Thức Éclat du teint",
+        "subtitle": "SIGNBOARD"
+      },
+      "poster": {
+        "notice": "The Purple Line_02",
+        "title": "Poster Éclat du teint",
+        "subtitle": "POSTER"
+      },
+      "banner": {
+        "notice": "The Purple Line_03",
+        "title": "X-Banner & Mini Banner Éclat du teint",
+        "subtitle": "X-BANNER & MINI BANNER"
+      },
+      "brochure": {
+        "notice": "The Purple Line_04",
+        "title": "Brochure Éclat du teint",
+        "subtitle": "BROCHURE"
+      },
+      "shoppingBag": {
+        "notice": "The Purple Line_05",
+        "title": "Túi Mua Sắm Éclat du teint",
+        "subtitle": "SHOPPING BAG"
+      }
+    },
+    "contact": {
+      "title": "LIÊN HỆ CHÚNG TÔI",
+      "subtitle": "Liên Hệ Đối Tác Chính Thức Éclat du teint",
+      "description": "Nhấn vào biểu tượng 'KakaoTalk' để liên hệ dễ dàng và nhanh chóng.",
+      "descriptionLine2": "Nếu bạn để lại tin nhắn 'Liên hệ đối tác chính thức Éclat du teint', chúng tôi sẽ trả lời bạn một cách chu đáo."
+    }
+  },
+  "bannerPage": {
+    "pageTitle": "X-Banner & Mini Banner - Éclat du teint",
+    "pageDescription": "Đặt các banner nâng cao sự sang trọng của cơ sở chăm sóc da của bạn, cả bên trong và bên ngoài.",
+    "hero": {
+      "notice": "The Purple Line_03",
+      "title": "X-BANNER & MINI BANNER",
+      "subtitle": "X-Banner & Mini Banner Éclat du teint",
+      "description": "Đặt các banner nâng cao sự sang trọng của cơ sở chăm sóc da của bạn, cả bên trong và bên ngoài."
+    },
+    "galleryInfo": {
+      "title": "Khám phá các thiết kế X-Banner và Mini Banner đa dạng của Éclat du teint.",
+      "description": "Nếu bạn nhận quà tặng miễn phí, vui lòng chọn thiết kế và gửi cho chúng tôi,",
+      "descriptionLine2": "chúng tôi sẽ sản xuất sản phẩm thực tế và gửi đến cơ sở quản lý.",
+      "xBannerTitle": "X-배너(Size : 60*180cm)",
+      "miniBannerTitle": "미니 배너(Size : 15*30cm)"
+    },
+    "relatedProducts": {
+      "signboard": {
+        "notice": "The Purple Line_01",
+        "title": "Biển Hiệu Chứng Nhận Chính Thức Éclat du teint",
+        "subtitle": "SIGNBOARD"
+      },
+      "poster": {
+        "notice": "The Purple Line_02",
+        "title": "Poster Éclat du teint",
+        "subtitle": "POSTER"
+      },
+      "banner": {
+        "notice": "The Purple Line_03",
+        "title": "X-Banner & Mini Banner Éclat du teint",
+        "subtitle": "X-BANNER & MINI BANNER"
+      },
+      "brochure": {
+        "notice": "The Purple Line_04",
+        "title": "Brochure Éclat du teint",
+        "subtitle": "BROCHURE"
+      },
+      "shoppingBag": {
+        "notice": "The Purple Line_05",
+        "title": "Túi Mua Sắm Éclat du teint",
+        "subtitle": "SHOPPING BAG"
+      }
+    },
+    "contact": {
+      "title": "LIÊN HỆ CHÚNG TÔI",
+      "subtitle": "Liên Hệ Đối Tác Chính Thức Éclat du teint",
+      "description": "Nhấn vào biểu tượng 'KakaoTalk' để liên hệ dễ dàng và nhanh chóng.",
+      "descriptionLine2": "Nếu bạn để lại tin nhắn 'Liên hệ đối tác chính thức Éclat du teint', chúng tôi sẽ trả lời bạn một cách chu đáo."
+    }
+  },
+  "videoContent": {
+    "pageTitle": "Video Content - Éclat du teint",
+    "pageDescription": "Cung cấp thông tin quý giá về chăm sóc da tùy chỉnh cho người dùng sản phẩm Éclat du teint.",
+    "hero": {
+      "title": "Video Content",
+      "subtitle": "Nội Dung Video Éclat du teint",
+      "description": "Cung cấp thông tin quý giá về chăm sóc da tùy chỉnh",
+      "descriptionLine2": "cho người dùng sản phẩm Éclat du teint."
+    },
+    "header": {
+      "title": "Video Content",
+      "count": "6"
+    },
+    "meta": {
+      "views": "Lượt xem"
+    },
+    "videos": {
+      "1": {
+        "title": "Kem Ngăn Ngừa Lão Hóa Siêu Chống Oxy Hóa",
+        "description": "Kem Săn Chắc Daily Alfalfa"
+      },
+      "2": {
+        "title": "[SHORT] Labofill Spicule Tự Nhiên Siêu Nhỏ",
+        "description": "Spicule tái tạo da bằng cách tận dụng phản ứng miễn dịch của da"
+      },
+      "3": {
+        "title": "Toner Men Vi Sinh Đầu Tiên Thoa Lên Da Sau Khi Rửa Mặt",
+        "description": "Toner & Essence Dưỡng Ẩm Có Chứa Cellditox Và Probiotic"
+      },
+      "4": {
+        "title": "Chăm Sóc Hàng Ngày Với Serum Dưỡng Ẩm + Kem Tái Tạo",
+        "description": "Da Căng Mịn Rực Rỡ Mọi Lúc Mọi Nơi"
+      },
+      "5": {
+        "title": "Chăm Sóc Mummy Cho Da Mụn Với Bọt Oxy",
+        "description": "Chương Trình Bổ Sung Nước Khẩn Cấp Cho Da Rất Khô + Cực Kỳ Nhạy Cảm"
+      },
+      "6": {
+        "title": "[FULL] Labofill Spicule Tự Nhiên Siêu Nhỏ",
+        "description": "Spicule tái tạo da bằng cách tận dụng phản ứng miễn dịch của da"
+      }
+    }
+  },
   "brand": {
     "pageTitle": "Câu chuyện thương hiệu - Éclat du teint",
     "pageDescription": "Tìm hiểu về Éclat du teint, thương hiệu dermocosmetic đáng tin cậy chuyên chăm sóc da nhạy cảm và da có vấn đề, được các chuyên gia chăm sóc da quốc tế công nhận.",
@@ -248,5 +612,95 @@
         "description": "Công thức được chứng minh khoa học mang lại kết quả cải thiện da thực sự với kết cấu tinh tế."
       }
     }
+  },
+  "contactPage": {
+    "pageTitle": "Liên Hệ - Q&A - Éclat du teint",
+    "pageDescription": "Liên hệ với Éclat du teint qua kênh KakaoTalk chính thức để được hỗ trợ nhanh chóng.",
+    "hero": {
+      "title": "Q&A",
+      "description": "Trang web khó kiểm tra câu hỏi",
+      "kakaoHighlight": "liên hệ qua kênh KakaoTalk chính thức Éclat du teint",
+      "descriptionEnd": "để được hỗ trợ nhanh chóng."
+    },
+    "board": {
+      "title": "Q&A",
+      "count": "115",
+      "writeButton": "Viết bài",
+      "notice": "Để được hỗ trợ nhanh chóng, vui lòng liên hệ qua",
+      "kakaoLink": "Kênh KakaoTalk Chính Thức",
+      "placeholder": "Bảng tin Q&A",
+      "tableHeaders": {
+        "title": "Tiêu đề",
+        "author": "Tác giả",
+        "date": "Ngày",
+        "views": "Lượt xem",
+        "likes": "Thích"
+      }
+    },
+    "posts": {
+      "secret": "Bài viết bí mật"
+    }
+  },
+  "productsPage": {
+    "pageTitle": "Tất Cả Sản Phẩm - Éclat du teint",
+    "pageDescription": "Khám phá tất cả các sản phẩm chăm sóc da chuyên nghiệp từ Éclat du teint.",
+    "hero": {
+      "title": "All Products",
+      "subtitle": "Tất Cả Sản Phẩm Của Éclat du teint",
+      "description": {
+        "line1": "Sản phẩm được tạo ra qua nghiên cứu và cống hiến",
+        "line2": "của các chuyên gia chỉ tập trung vào chăm sóc da."
+      }
+    },
+    "categories": {
+      "all": "Tất Cả Sản Phẩm",
+      "sets": "Bộ Sản Phẩm",
+      "cleansing": "Sữa Rửa Mặt",
+      "toner": "Toner / Nước Hoa Hồng",
+      "peeling": "Tẩy Tế Bào Chết",
+      "serum": "Serum / Tinh Chất",
+      "lotion": "Kem Dưỡng",
+      "mask": "Mặt Nạ",
+      "kit": "Bộ Kit / Trang Điểm",
+      "tools": "Dụng Cụ"
+    },
+    "labels": {
+      "sale": "SALE",
+      "reviews": "Đánh giá",
+      "likes": "Yêu thích",
+      "cart": "Giỏ hàng",
+      "currency": "₫"
+    }
+  },
+  "productDetail": {
+    "reviews": "đánh giá",
+    "saved": "Bạn tiết kiệm",
+    "quantity": "Số lượng",
+    "total": "Tổng cộng",
+    "addToCart": "Thêm Vào Giỏ Hàng",
+    "buyNow": "Mua Ngay",
+    "addToWishlist": "Thêm Vào Yêu Thích",
+    "features": {
+      "freeShipping": {
+        "title": "Miễn Phí Vận Chuyển",
+        "desc": "Miễn phí ship cho đơn hàng trên 50,000₩"
+      },
+      "authentic": {
+        "title": "100% Chính Hãng",
+        "desc": "Đảm bảo sản phẩm Éclat du teint chính hãng"
+      },
+      "support": {
+        "title": "Hỗ Trợ 24/7",
+        "desc": "Hỗ trợ khách hàng mọi lúc mọi nơi"
+      }
+    },
+    "tabs": {
+      "description": "Mô Tả",
+      "ingredients": "Thành Phần",
+      "howToUse": "Cách Sử Dụng",
+      "reviews": "Đánh Giá"
+    },
+    "descriptionPlaceholder": "Đây là sản phẩm chăm sóc da cao cấp từ Éclat du teint, được pha chế với các thành phần được lựa chọn cẩn thận để mang lại sự chăm sóc tối ưu cho làn da của bạn. Được phát triển thông qua nghiên cứu và thử nghiệm sâu rộng, sản phẩm này mang lại kết quả hữu hình trong khi vẫn duy trì sự dịu nhẹ cần thiết cho làn da nhạy cảm.",
+    "relatedProducts": "Sản Phẩm Liên Quan"
   }
 }
