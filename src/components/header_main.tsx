@@ -7,6 +7,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useTransition, useEffect } from "react";
 import { Menu, X, ShoppingCart } from "lucide-react";
+import { getCart, getCartItemsCount } from "@/utils/cart";
 
 export default function HeaderMain() {
   const t = useTranslations("header");
@@ -17,6 +18,7 @@ export default function HeaderMain() {
   const [isClosing, setIsClosing] = useState(false);
   const [isPending, startTransition] = useTransition();
   const [isScrolled, setIsScrolled] = useState(false);
+  const [cartItemsCount, setCartItemsCount] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,6 +27,20 @@ export default function HeaderMain() {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    // Update cart count on mount and when cart changes
+    const updateCartCount = () => {
+      const cart = getCart();
+      setCartItemsCount(getCartItemsCount(cart));
+    };
+
+    updateCartCount();
+
+    // Listen for cart updates
+    window.addEventListener("cartUpdated", updateCartCount);
+    return () => window.removeEventListener("cartUpdated", updateCartCount);
   }, []);
 
   const changeLocale = async (newLocale: string) => {
@@ -122,9 +138,14 @@ export default function HeaderMain() {
             {/* Cart */}
             <Link
               href="/cart"
-              className="p-2 text-gray-600 hover:text-purple-600 transition-colors"
+              className="p-2 text-gray-600 hover:text-purple-600 transition-colors relative"
             >
               <ShoppingCart className="w-4 h-4" style={{ color: "#662d91" }} />
+              {cartItemsCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">
+                  {cartItemsCount}
+                </span>
+              )}
             </Link>
           </div>
         </div>
@@ -167,13 +188,18 @@ export default function HeaderMain() {
                 <Link
                   href="/cart"
                   style={{ color: "#662d91" }}
-                  className="flex items-center gap-1 text-gray-600 hover:text-purple-600 transition-colors"
+                  className="flex items-center gap-1 text-gray-600 hover:text-purple-600 transition-colors relative"
                 >
                   <ShoppingCart
                     style={{ color: "#662d91", fontWeight: "bold" }}
                     className="w-4 h-4"
                   />
                   <span>{t("cart")}</span>
+                  {cartItemsCount > 0 && (
+                    <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">
+                      {cartItemsCount}
+                    </span>
+                  )}
                 </Link>
               </div>
             </div>

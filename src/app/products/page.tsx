@@ -4,11 +4,13 @@ import React, { useState, useMemo } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { products, type Product } from "@/data/products";
 import Link from "next/link";
+import { addToCart } from "@/utils/cart";
 
 const ProductsPage = () => {
   const t = useTranslations("productsPage");
   const locale = useLocale();
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const [addedToCartId, setAddedToCartId] = useState<number | null>(null);
 
   const categories = [
     { id: "all", label: t("categories.all") },
@@ -39,6 +41,16 @@ const ProductsPage = () => {
     if (locale === "vi") return product.nameVi;
     if (locale === "en") return product.nameEn;
     return product.name;
+  };
+
+  const handleAddToCart = (product: Product, e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    addToCart(product, 1);
+    setAddedToCartId(product.id);
+    setTimeout(() => {
+      setAddedToCartId(null);
+    }, 2000);
   };
 
   return (
@@ -149,7 +161,7 @@ const ProductsPage = () => {
                 </div>
 
                 {/* Icons */}
-                <div className="flex items-center justify-center gap-4 text-xs text-gray-500">
+                <div className="flex items-center justify-center gap-4 text-xs text-gray-500 mb-3">
                   <span className="flex items-center gap-1">
                     <svg
                       className="w-4 h-4"
@@ -182,22 +194,53 @@ const ProductsPage = () => {
                     </svg>
                     {product.likes}
                   </span>
-                  <span className="flex items-center gap-1">
-                    <svg
-                      className="w-4 h-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
-                      />
-                    </svg>
-                  </span>
                 </div>
+
+                {/* Add to Cart Button */}
+                <button
+                  onClick={(e) => handleAddToCart(product, e)}
+                  className={`w-full py-2 px-4 rounded-lg transition-all ${
+                    addedToCartId === product.id
+                      ? "bg-green-500 text-white"
+                      : "bg-[#662d91] text-white hover:bg-[#551f7a]"
+                  }`}
+                >
+                  {addedToCartId === product.id ? (
+                    <span className="flex items-center justify-center gap-2">
+                      <svg
+                        className="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                      {t("labels.addedToCart") || "Đã thêm"}
+                    </span>
+                  ) : (
+                    <span className="flex items-center justify-center gap-2">
+                      <svg
+                        className="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+                        />
+                      </svg>
+                      {t("labels.cart") || "Thêm vào giỏ"}
+                    </span>
+                  )}
+                </button>
               </div>
             </Link>
           ))}

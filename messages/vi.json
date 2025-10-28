@@ -670,7 +670,8 @@
       "sale": "SALE",
       "reviews": "Đánh giá",
       "likes": "Yêu thích",
-      "cart": "Giỏ hàng",
+      "cart": "Thêm vào giỏ",
+      "addedToCart": "Đã thêm",
       "currency": "₫"
     }
   },
@@ -704,5 +705,51 @@
     },
     "descriptionPlaceholder": "Đây là sản phẩm chăm sóc da cao cấp từ Éclat du teint, được pha chế với các thành phần được lựa chọn cẩn thận để mang lại sự chăm sóc tối ưu cho làn da của bạn. Được phát triển thông qua nghiên cứu và thử nghiệm sâu rộng, sản phẩm này mang lại kết quả hữu hình trong khi vẫn duy trì sự dịu nhẹ cần thiết cho làn da nhạy cảm.",
     "relatedProducts": "Sản Phẩm Liên Quan"
+  },
+  "cartPage": {
+    "pageTitle": "Giỏ Hàng - Éclat du teint",
+    "pageDescription": "Xem giỏ hàng và đặt hàng sản phẩm Éclat du teint.",
+    "title": "Giỏ Hàng",
+    "emptyCart": "Giỏ hàng của bạn đang trống",
+    "continueShopping": "Tiếp tục mua sắm",
+    "product": "Sản phẩm",
+    "price": "Giá",
+    "quantity": "Số lượng",
+    "total": "Tổng",
+    "remove": "Xóa",
+    "subtotal": "Tạm tính",
+    "shipping": "Phí vận chuyển",
+    "shippingFree": "Miễn phí",
+    "grandTotal": "Tổng cộng",
+    "proceedToCheckout": "Tiến hành đặt hàng",
+    "orderForm": {
+      "title": "Thông tin đặt hàng",
+      "name": "Họ và tên",
+      "namePlaceholder": "Nhập họ tên của bạn",
+      "email": "Email",
+      "emailPlaceholder": "Nhập email của bạn",
+      "phone": "Số điện thoại",
+      "phonePlaceholder": "Nhập số điện thoại",
+      "address": "Địa chỉ giao hàng",
+      "addressPlaceholder": "Nhập địa chỉ giao hàng",
+      "note": "Ghi chú",
+      "notePlaceholder": "Ghi chú thêm cho đơn hàng (không bắt buộc)",
+      "submit": "Đặt hàng",
+      "submitting": "Đang xử lý...",
+      "required": "Trường này là bắt buộc"
+    },
+    "success": {
+      "title": "Đặt hàng thành công!",
+      "message": "Cảm ơn bạn đã đặt hàng. Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất.",
+      "orderNumber": "Mã đơn hàng",
+      "backToHome": "Về trang chủ"
+    },
+    "error": {
+      "title": "Có lỗi xảy ra",
+      "message": "Không thể gửi đơn hàng. Vui lòng thử lại sau.",
+      "tryAgain": "Thử lại"
+    },
+    "addedToCart": "Đã thêm vào giỏ hàng",
+    "itemsInCart": "sản phẩm trong giỏ"
   }
 }

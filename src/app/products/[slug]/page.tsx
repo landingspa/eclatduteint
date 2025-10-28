@@ -3,8 +3,9 @@
 import React, { useState, use } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { products } from "@/data/products";
-import { notFound } from "next/navigation";
+import { notFound, useRouter } from "next/navigation";
 import Link from "next/link";
+import { addToCart } from "@/utils/cart";
 
 export default function ProductDetailPage({
   params,
@@ -14,8 +15,10 @@ export default function ProductDetailPage({
   const resolvedParams = use(params);
   const t = useTranslations("productDetail");
   const locale = useLocale();
+  const router = useRouter();
   const [quantity, setQuantity] = useState(1);
   const [selectedImage, setSelectedImage] = useState(0);
+  const [isAddingToCart, setIsAddingToCart] = useState(false);
 
   // Find product by ID from slug
   const productId = parseInt(resolvedParams.slug);
@@ -46,6 +49,19 @@ export default function ProductDetailPage({
           100
       )
     : 0;
+
+  const handleAddToCart = () => {
+    setIsAddingToCart(true);
+    addToCart(product, quantity);
+    setTimeout(() => {
+      setIsAddingToCart(false);
+    }, 1500);
+  };
+
+  const handleBuyNow = () => {
+    addToCart(product, quantity);
+    router.push("/cart");
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -171,10 +187,40 @@ export default function ProductDetailPage({
 
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 mb-6">
-              <button className="flex-1 bg-[#662d91] text-white py-3 px-6 rounded-lg font-bold hover:bg-[#552577] transition">
-                {t("addToCart")}
+              <button
+                onClick={handleAddToCart}
+                disabled={isAddingToCart}
+                className={`flex-1 py-3 px-6 rounded-lg font-bold transition flex items-center justify-center gap-2 ${
+                  isAddingToCart
+                    ? "bg-green-500 text-white"
+                    : "bg-[#662d91] text-white hover:bg-[#552577]"
+                }`}
+              >
+                {isAddingToCart ? (
+                  <>
+                    <svg
+                      className="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                    Đã thêm vào giỏ!
+                  </>
+                ) : (
+                  t("addToCart")
+                )}
               </button>
-              <button className="flex-1 bg-white text-[#662d91] border-2 border-[#662d91] py-3 px-6 rounded-lg font-bold hover:bg-[#662d91] hover:text-white transition">
+              <button
+                onClick={handleBuyNow}
+                className="flex-1 bg-white text-[#662d91] border-2 border-[#662d91] py-3 px-6 rounded-lg font-bold hover:bg-[#662d91] hover:text-white transition"
+              >
                 {t("buyNow")}
               </button>
             </div>

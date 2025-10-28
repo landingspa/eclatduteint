@@ -670,7 +670,8 @@
       "sale": "SALE",
       "reviews": "Reviews",
       "likes": "Likes",
-      "cart": "Cart",
+      "cart": "Add to Cart",
+      "addedToCart": "Added",
       "currency": "$"
     }
   },
@@ -704,5 +705,51 @@
     },
     "descriptionPlaceholder": "This is a premium skincare product from Éclat du teint, formulated with carefully selected ingredients to provide optimal care for your skin. Developed through extensive research and testing, this product delivers visible results while maintaining the gentleness needed for sensitive skin.",
     "relatedProducts": "Related Products"
+  },
+  "cartPage": {
+    "pageTitle": "Shopping Cart - Éclat du teint",
+    "pageDescription": "View your cart and order Éclat du teint products.",
+    "title": "Shopping Cart",
+    "emptyCart": "Your cart is empty",
+    "continueShopping": "Continue Shopping",
+    "product": "Product",
+    "price": "Price",
+    "quantity": "Quantity",
+    "total": "Total",
+    "remove": "Remove",
+    "subtotal": "Subtotal",
+    "shipping": "Shipping",
+    "shippingFree": "Free",
+    "grandTotal": "Grand Total",
+    "proceedToCheckout": "Proceed to Checkout",
+    "orderForm": {
+      "title": "Order Information",
+      "name": "Full Name",
+      "namePlaceholder": "Enter your name",
+      "email": "Email",
+      "emailPlaceholder": "Enter your email",
+      "phone": "Phone Number",
+      "phonePlaceholder": "Enter your phone number",
+      "address": "Shipping Address",
+      "addressPlaceholder": "Enter shipping address",
+      "note": "Note",
+      "notePlaceholder": "Additional notes for your order (optional)",
+      "submit": "Place Order",
+      "submitting": "Processing...",
+      "required": "This field is required"
+    },
+    "success": {
+      "title": "Order Successful!",
+      "message": "Thank you for your order. We will contact you as soon as possible.",
+      "orderNumber": "Order Number",
+      "backToHome": "Back to Home"
+    },
+    "error": {
+      "title": "An error occurred",
+      "message": "Unable to submit order. Please try again later.",
+      "tryAgain": "Try Again"
+    },
+    "addedToCart": "Added to cart",
+    "itemsInCart": "items in cart"
   }
 }
