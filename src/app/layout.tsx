@@ -4,6 +4,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getLocale } from "next-intl/server";
 import HeaderMain from "@/components/header_main";
 import Footer from "@/components/footer";
+import FloatingButtons from "@/components/floating_buttons";
 import "./globals.css";
 
 const notoSans = Noto_Sans({
@@ -97,6 +98,7 @@ export default async function RootLayout({
           <HeaderMain />
           {children}
           <Footer />
+          <FloatingButtons />
         </NextIntlClientProvider>
       </body>
     </html>
