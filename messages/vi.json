@@ -168,16 +168,13 @@
   },
   "footer": {
     "companyInfo": "THÔNG TIN CÔNG TY",
-    "companyName": "Pháp nhân (Tên công ty): (주)에페비아",
-    "representative": "Đại diện: 박규리",
-    "phone": "Điện thoại: 070-4119-3360",
-    "businessNumber": "Số đăng ký kinh doanh: [293-87-02159]",
-    "onlineBusinessNumber": "Đăng ký kinh doanh trực tuyến: 제2022-서울강남-04985호",
+    "companyName": "Pháp nhân (Tên công ty): Công ty TNHH XNK & TM W Healthcare",
+    "phone": "Điện thoại: (+84) 984105393",
+    "businessNumber": "Số đăng ký kinh doanh: [5702136441]",
     "businessVerify": "Xác minh doanh nghiệp",
-    "privacyOfficer": "Người phụ trách quản lý thông tin cá nhân: 박규리",
-    "email": "Email: eclat.violeta@gmail.com",
-    "address": "Địa chỉ: 06017 서울특별시 강남구 압구정로42길 12 (신사동), 5층",
-    "terms": "Điều khoản sử dụng",
+    "email": "Email: eclatmastersystem@gmail.com",
+    "address": "Địa chỉ: Lê Đại Hành, Hai Bà Trưng, Hà Nội",
+    "terms": "Điều khoản sử dụng chung",
     "privacy": "Chính sách bảo mật thông tin cá nhân"
   },
   "auth": {
@@ -213,7 +210,7 @@
     },
     "application": {
       "title": "Đăng Ký Đào Tạo Dễ Dàng",
-      "instruction": "Nhấn vào biểu tượng 'KakaoTalk' phía trên để đăng ký đào tạo dễ dàng và nhanh chóng.",
+      "instruction": "Nhấn vào biểu tượng 'Facebook' hoặc 'Zalo' phía trên để đăng ký đào tạo dễ dàng và nhanh chóng.",
       "tip": "Nếu bạn để lại tin nhắn 'Câu hỏi về đơn đăng ký đào tạo sản phẩm Éclat du teint', chúng tôi sẽ phản hồi nhanh hơn."
     }
   },
@@ -615,19 +612,20 @@
   },
   "contactPage": {
     "pageTitle": "Liên Hệ - Q&A - Éclat du teint",
-    "pageDescription": "Liên hệ với Éclat du teint qua kênh KakaoTalk chính thức để được hỗ trợ nhanh chóng.",
+    "pageDescription": "Liên hệ với Éclat du teint qua Facebook hoặc Zalo để được hỗ trợ nhanh chóng.",
     "hero": {
       "title": "Q&A",
-      "description": "Trang web khó kiểm tra câu hỏi",
-      "kakaoHighlight": "liên hệ qua kênh KakaoTalk chính thức Éclat du teint",
-      "descriptionEnd": "để được hỗ trợ nhanh chóng."
+      "description": "Để được hỗ trợ nhanh chóng, vui lòng liên hệ qua",
+      "kakaoHighlight": "Facebook hoặc Zalo",
+      "descriptionEnd": "của chúng tôi."
     },
     "board": {
       "title": "Q&A",
       "count": "115",
       "writeButton": "Viết bài",
       "notice": "Để được hỗ trợ nhanh chóng, vui lòng liên hệ qua",
-      "kakaoLink": "Kênh KakaoTalk Chính Thức",
+      "facebookLink": "Facebook",
+      "zaloLink": "Zalo",
       "placeholder": "Bảng tin Q&A",
       "tableHeaders": {
         "title": "Tiêu đề",
@@ -636,6 +634,10 @@
         "views": "Lượt xem",
         "likes": "Thích"
       }
+    },
+    "contact": {
+      "facebook": "https://www.facebook.com/profile.php?id=61579240127022",
+      "zalo": "https://zalo.me/g/oboocy070"
     },
     "posts": {
       "secret": "Bài viết bí mật"

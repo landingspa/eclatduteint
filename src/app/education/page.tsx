@@ -95,23 +95,44 @@ export default function EducationPage() {
             {t("application.title")}
           </h2>
 
-          {/* KakaoTalk Button */}
-          <a
-            href="http://pf.kakao.com/_hnkCxj"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block mb-6"
-          >
-            <div className="w-20 h-20 lg:w-24 lg:h-24 mx-auto bg-yellow-400 rounded-full flex items-center justify-center hover:bg-yellow-500 transition-colors shadow-lg">
-              <svg
-                viewBox="0 0 24 24"
-                className="w-12 h-12 lg:w-14 lg:h-14"
-                fill="currentColor"
-              >
-                <path d="M12 3C6.477 3 2 6.641 2 11.1c0 2.8 1.8 5.267 4.5 6.733-.2.733-.65 2.533-.75 2.933-.133.533.2.533.4.4.167-.1 2.6-1.767 3.017-2.067C9.75 19.033 10.867 19.2 12 19.2c5.523 0 10-3.641 10-8.1S17.523 3 12 3z" />
-              </svg>
-            </div>
-          </a>
+          {/* Social Media Buttons */}
+          <div className="flex justify-center items-center gap-4 mb-6">
+            {/* Facebook Button */}
+            <a
+              href="https://www.facebook.com/profile.php?id=61579240127022"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-transparent"
+            >
+              <div className="bg-transparent w-14 h-14 lg:w-18 lg:h-18  flex items-center justify-center hover:opacity-80 transition-opacity  overflow-hidden ">
+                <Image
+                  src="/facebook.png"
+                  alt="Facebook"
+                  width={72}
+                  height={72}
+                  className="bg-transparent w-full h-full object-contain p-1"
+                />
+              </div>
+            </a>
+
+            {/* Zalo Button */}
+            <a
+              href="https://zalo.me/g/oboocy070"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block"
+            >
+              <div className="w-16 h-16 lg:w-20 lg:h-20  flex items-center justify-center hover:opacity-80 transition-opacity overflow-hidden ">
+                <Image
+                  src="/zalo.png"
+                  alt="Zalo"
+                  width={80}
+                  height={80}
+                  className="w-full h-full object-contain p-1"
+                />
+              </div>
+            </a>
+          </div>
 
           <p className="text-base lg:text-lg leading-relaxed mb-4">
             {t("application.instruction")}

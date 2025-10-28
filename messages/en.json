@@ -168,15 +168,12 @@
   },
   "footer": {
     "companyInfo": "COMPANY INFO",
-    "companyName": "Corporation (Business Name): (주)에페비아",
-    "representative": "Representative: 박규리",
-    "phone": "Phone: 070-4119-3360",
-    "businessNumber": "Business Registration Number: [293-87-02159]",
-    "onlineBusinessNumber": "Online Business Registration: 제2022-서울강남-04985호",
+    "companyName": "Corporation (Business Name): W Healthcare Import-Export & Trading Co., Ltd.",
+    "phone": "Phone: (+84) 984105393",
+    "businessNumber": "Business Registration Number: [5702136441]",
     "businessVerify": "Verify Business",
-    "privacyOfficer": "Privacy Information Manager: 박규리",
-    "email": "Email: eclat.violeta@gmail.com",
-    "address": "Address: 06017 서울특별시 강남구 압구정로42길 12 (신사동), 5층",
+    "email": "Email: eclatmastersystem@gmail.com",
+    "address": "Address: Le Dai Hanh, Hai Ba Trung, Hanoi",
     "terms": "Terms of Use",
     "privacy": "Privacy Policy"
   },
@@ -213,7 +210,7 @@
     },
     "application": {
       "title": "Easy Training Application",
-      "instruction": "Press the 'KakaoTalk' icon above to apply for training easily and quickly.",
+      "instruction": "Press the 'Facebook' or 'Zalo' icon above to apply for training easily and quickly.",
       "tip": "If you leave a message saying 'Inquiry about Éclat du teint product training application', faster response is possible."
     }
   },
@@ -615,19 +612,20 @@
   },
   "contactPage": {
     "pageTitle": "Contact - Q&A - Éclat du teint",
-    "pageDescription": "Contact Éclat du teint through our official KakaoTalk channel for quick support.",
+    "pageDescription": "Contact Éclat du teint through Facebook or Zalo for quick support.",
     "hero": {
       "title": "Q&A",
-      "description": "Website inquiries are difficult to check, so please",
-      "kakaoHighlight": "contact us through Éclat du teint's official KakaoTalk channel",
-      "descriptionEnd": "for quick assistance."
+      "description": "For quick support, please contact us via",
+      "kakaoHighlight": "Facebook or Zalo",
+      "descriptionEnd": "."
     },
     "board": {
       "title": "Q&A",
       "count": "115",
       "writeButton": "Write",
       "notice": "For quick support, please contact us via",
-      "kakaoLink": "Official KakaoTalk Channel",
+      "facebookLink": "Facebook",
+      "zaloLink": "Zalo",
       "placeholder": "Q&A Board",
       "tableHeaders": {
         "title": "Title",
@@ -636,6 +634,10 @@
         "views": "Views",
         "likes": "Likes"
       }
+    },
+    "contact": {
+      "facebook": "https://www.facebook.com/profile.php?id=61579240127022",
+      "zalo": "https://zalo.me/g/oboocy070"
     },
     "posts": {
       "secret": "Secret Post"

@@ -1,6 +1,7 @@
 import React from "react";
 import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
+import Image from "next/image";
 
 type Props = {};
 
@@ -597,14 +598,45 @@ const page = (props: Props) => {
           <p className="text-white text-xs md:text-sm leading-relaxed mb-8 max-w-2xl mx-auto">
             {t("contact.description")}
           </p>
-          <a
-            href="http://pf.kakao.com/_hnkCxj"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center px-8 py-3 border border-white text-white text-lg rounded hover:bg-white hover:text-purple-700 transition-colors"
-          >
-            <i className="mr-3">💬</i> {t("contact.button")}
-          </a>
+
+          {/* Social Media Buttons */}
+          <div className="flex justify-center gap-4 mb-6">
+            {/* Facebook Button */}
+            <a
+              href="https://www.facebook.com/profile.php?id=61579240127022"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block"
+            >
+              <div className="w-16 h-16 lg:w-20 lg:h-20 flex items-center justify-center hover:opacity-80 transition-opacity overflow-hidden bg-white rounded-full shadow-lg">
+                <Image
+                  src="/facebook.png"
+                  alt="Facebook"
+                  width={80}
+                  height={80}
+                  className="w-full h-full object-contain p-1"
+                />
+              </div>
+            </a>
+
+            {/* Zalo Button */}
+            <a
+              href="https://zalo.me/g/oboocy070"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block"
+            >
+              <div className="w-16 h-16 lg:w-20 lg:h-20 flex items-center justify-center hover:opacity-80 transition-opacity overflow-hidden bg-white rounded-full shadow-lg">
+                <Image
+                  src="/zalo.png"
+                  alt="Zalo"
+                  width={80}
+                  height={80}
+                  className="w-full h-full object-contain p-1"
+                />
+              </div>
+            </a>
+          </div>
         </div>
       </section>
     </div>

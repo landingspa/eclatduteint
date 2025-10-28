@@ -26,7 +26,6 @@ export default function Footer() {
           style={{ fontSize: "11px" }}
         >
           <p>{t("companyName")}</p>
-          <p>{t("representative")}</p>
           <p>{t("phone")}</p>
 
           <p>
@@ -41,8 +40,6 @@ export default function Footer() {
             </Link>
           </p>
 
-          <p>{t("onlineBusinessNumber")}</p>
-          <p>{t("privacyOfficer")}</p>
           <p>{t("email")}</p>
           <p>{t("address")}</p>
         </div>

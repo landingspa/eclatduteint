@@ -103,7 +103,7 @@ const Page = (props: Props) => {
           </p>
           <div className="max-w-3xl mx-auto">
             <p
-              className="text-base leading-relaxed"
+              className="text-base leading-relaxed mb-6"
               style={{ color: "#525252" }}
             >
               {t("contactPage.hero.description")}{" "}
@@ -112,6 +112,40 @@ const Page = (props: Props) => {
               </strong>{" "}
               {t("contactPage.hero.descriptionEnd")}
             </p>
+            <div className="flex justify-center gap-4 flex-wrap">
+              <a
+                href={t("contactPage.contact.facebook")}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3 text-white rounded-lg hover:opacity-90 transition-opacity inline-flex items-center gap-2"
+                style={{ backgroundColor: "#1877F2" }}
+              >
+                <svg
+                  className="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                </svg>
+                {t("contactPage.board.facebookLink")}
+              </a>
+              <a
+                href={t("contactPage.contact.zalo")}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3 text-white rounded-lg hover:opacity-90 transition-opacity inline-flex items-center gap-2"
+                style={{ backgroundColor: "#0068FF" }}
+              >
+                <svg
+                  className="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 15.318c-.163.269-.538.527-.917.527-.163 0-.325-.054-.487-.163l-3.706-2.434v2.434c0 .433-.325.758-.758.758s-.758-.325-.758-.758V9.318c0-.379.271-.704.65-.758.379-.054.704.162.866.487l3.706 5.624V9.318c0-.433.325-.758.758-.758s.758.325.758.758v5.082c0 .271-.054.542-.217.758zm-7.788 0c-.163.269-.538.527-.917.527-.163 0-.325-.054-.487-.163L5.106 13.25v2.434c0 .433-.325.758-.758.758s-.758-.325-.758-.758V9.318c0-.379.271-.704.65-.758.379-.054.704.162.866.487l3.706 5.624V9.318c0-.433.325-.758.758-.758s.758.325.758.758v5.082c0 .271-.054.542-.217.758z" />
+                </svg>
+                {t("contactPage.board.zaloLink")}
+              </a>
+            </div>
           </div>
         </div>
       </section>
