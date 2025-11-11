@@ -12,8 +12,6 @@ export default function HomePage() {
       <SlideSection />
       <FreeGift />
       <DoubleImageSection />
-      <AllProductsSection />
-      <ProductsGridSection />
     </>
   );
 }
