@@ -1,18 +1,15 @@
 "use client";
 
-import React, { useState, use } from "react";
+import React, { useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { products } from "@/data/products";
-import { notFound, useRouter } from "next/navigation";
+import { notFound, useRouter, useParams } from "next/navigation";
 import Link from "next/link";
 import { addToCart } from "@/utils/cart";
 
-export default function ProductDetailPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const resolvedParams = use(params);
+export default function ProductDetailPage() {
+  const params = useParams();
+  const slug = params.slug as string;
   const t = useTranslations("productDetail");
   const locale = useLocale();
   const router = useRouter();
@@ -20,8 +17,8 @@ export default function ProductDetailPage({
   const [selectedImage, setSelectedImage] = useState(0);
   const [isAddingToCart, setIsAddingToCart] = useState(false);
 
-  // Find product by ID from slug
-  const productId = parseInt(resolvedParams.slug);
+  // Find product by ID (slug param contains the ID)
+  const productId = parseInt(slug);
   const product = products.find((p) => p.id === productId);
 
   if (!product) {
@@ -85,18 +82,46 @@ export default function ProductDetailPage({
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Product Images */}
           <div>
+            {/* Main Image */}
             <div className="relative aspect-square mb-4 overflow-hidden bg-gray-100 rounded-lg">
               <img
-                src={product.image}
+                src={
+                  product.detailImages && product.detailImages.length > 0
+                    ? product.detailImages[selectedImage]
+                    : product.image
+                }
                 alt={getProductName()}
                 className="w-full h-full object-cover"
               />
               {product.hasSale && (
                 <div className="absolute top-4 right-4 bg-red-500 text-white text-sm px-3 py-1 font-bold rounded">
-                  {discount}% OFF
+                  SALE
                 </div>
               )}
             </div>
+
+            {/* Thumbnail Images */}
+            {product.detailImages && product.detailImages.length > 1 && (
+              <div className="grid grid-cols-4 gap-2">
+                {product.detailImages.slice(0, 4).map((img, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setSelectedImage(index)}
+                    className={`relative aspect-square overflow-hidden bg-gray-100 rounded border-2 transition ${
+                      selectedImage === index
+                        ? "border-[#662d91]"
+                        : "border-transparent hover:border-gray-300"
+                    }`}
+                  >
+                    <img
+                      src={img}
+                      alt={`${getProductName()} ${index + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* Product Info */}
@@ -318,28 +343,90 @@ export default function ProductDetailPage({
           </div>
         </div>
 
-        {/* Product Description Tabs */}
+        {/* Product Description Section */}
         <div className="mt-12">
-          <div className="border-b border-gray-200">
+          <div className="border-b border-gray-200 mb-8">
             <div className="flex gap-8">
               <button className="pb-4 border-b-2 border-[#662d91] text-[#662d91] font-bold">
-                {t("tabs.description")}
+                상세정보
               </button>
               <button className="pb-4 text-gray-600 hover:text-[#662d91]">
-                {t("tabs.ingredients")}
+                구매평 ({product.reviews})
               </button>
               <button className="pb-4 text-gray-600 hover:text-[#662d91]">
-                {t("tabs.howToUse")}
-              </button>
-              <button className="pb-4 text-gray-600 hover:text-[#662d91]">
-                {t("tabs.reviews")}
+                Q&A (0)
               </button>
             </div>
           </div>
-          <div className="py-8">
-            <p className="text-gray-700 leading-relaxed">
-              {t("descriptionPlaceholder")}
-            </p>
+
+          {/* Detail Images */}
+          <div className="space-y-4">
+            {product.detailImages && product.detailImages.length > 0 ? (
+              product.detailImages.map((img, index) => (
+                <div
+                  key={index}
+                  className="w-full max-w-4xl mx-auto overflow-hidden"
+                >
+                  <img
+                    src={img}
+                    alt={`${getProductName()} detail ${index + 1}`}
+                    className="w-full h-auto"
+                    loading="lazy"
+                  />
+                </div>
+              ))
+            ) : (
+              <div className="py-12 text-center">
+                <div className="bg-gray-100 rounded-lg p-12">
+                  <svg
+                    className="w-16 h-16 mx-auto mb-4 text-gray-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                    />
+                  </svg>
+                  <p className="text-gray-600">{getProductName()}</p>
+                  <p className="text-sm text-gray-500 mt-2">
+                    상세 이미지가 준비 중입니다
+                  </p>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Product Information Table */}
+          <div className="mt-12 border-t border-gray-200 pt-8">
+            <h3 className="text-lg font-bold text-[#595757] mb-4">
+              상품정보 제공고시
+            </h3>
+            <div className="bg-gray-50 rounded-lg p-6 space-y-3 text-sm">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="font-medium text-gray-700">배송 방법</div>
+                <div className="md:col-span-2 text-gray-600">택배</div>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="font-medium text-gray-700">배송비</div>
+                <div className="md:col-span-2 text-gray-600">
+                  3,500원 (50,000원 이상 무료배송)
+                </div>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="font-medium text-gray-700">제조국</div>
+                <div className="md:col-span-2 text-gray-600">상품상세 참조</div>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="font-medium text-gray-700">
+                  사용기한 또는 개봉 후 사용기간
+                </div>
+                <div className="md:col-span-2 text-gray-600">상품상세 참조</div>
+              </div>
+            </div>
           </div>
         </div>
 
