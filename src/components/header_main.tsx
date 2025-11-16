@@ -2,12 +2,14 @@
 
 import { useTranslations, useLocale } from "next-intl";
 import { useRouter, usePathname } from "next/navigation";
-import { setUserLocale } from "@/app/actions/locale";
+import { setUserLocale } from "@/app/(public)/actions/locale";
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useTransition, useEffect } from "react";
-import { Menu, X, ShoppingCart } from "lucide-react";
+import { Menu, X, ShoppingCart, User, LogOut } from "lucide-react";
 import { getCart, getCartItemsCount } from "@/utils/cart";
+import { authService } from "@/service";
+import type { User as UserType } from "@/service/auth.service";
 
 export default function HeaderMain() {
   const t = useTranslations("header");
@@ -19,6 +21,24 @@ export default function HeaderMain() {
   const [isPending, startTransition] = useTransition();
   const [isScrolled, setIsScrolled] = useState(false);
   const [cartItemsCount, setCartItemsCount] = useState(0);
+  const [currentUser, setCurrentUser] = useState<UserType | null>(null);
+  const [showUserMenu, setShowUserMenu] = useState(false);
+
+  useEffect(() => {
+    // Check if user is logged in
+    const user = authService.getCurrentUser();
+    setCurrentUser(user);
+
+    // Listen for auth state changes
+    const handleAuthChange = () => {
+      const updatedUser = authService.getCurrentUser();
+      setCurrentUser(updatedUser);
+    };
+
+    window.addEventListener("authStateChanged", handleAuthChange);
+    return () =>
+      window.removeEventListener("authStateChanged", handleAuthChange);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -56,6 +76,16 @@ export default function HeaderMain() {
       setIsMenuOpen(false);
       setIsClosing(false);
     }, 300); // Match với animation duration
+  };
+
+  const handleLogout = () => {
+    if (confirm("Bạn có chắc muốn đăng xuất?")) {
+      authService.logout();
+      setCurrentUser(null);
+      setShowUserMenu(false);
+      window.dispatchEvent(new Event("authStateChanged"));
+      router.push("/");
+    }
   };
 
   const navigationItems = [
@@ -135,6 +165,74 @@ export default function HeaderMain() {
               </button>
             </div>
 
+            {/* User Menu or Register Button */}
+            {currentUser ? (
+              <div className="relative">
+                <button
+                  onClick={() => setShowUserMenu(!showUserMenu)}
+                  className="flex items-center gap-1 p-1.5 rounded-full bg-purple-100 hover:bg-purple-200 transition"
+                >
+                  <User className="w-4 h-4 text-purple-600" />
+                </button>
+
+                {showUserMenu && (
+                  <>
+                    <div
+                      className="fixed inset-0 z-10"
+                      onClick={() => setShowUserMenu(false)}
+                    />
+                    <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-20">
+                      <div className="px-4 py-2 border-b border-gray-100">
+                        <p className="text-xs font-semibold text-gray-900 truncate">
+                          {currentUser.name}
+                        </p>
+                        <p className="text-xs text-gray-500 truncate">
+                          {currentUser.email}
+                        </p>
+                      </div>
+                      <Link
+                        href="/my-orders"
+                        className="block px-4 py-2 text-xs text-gray-700 hover:bg-purple-50 transition"
+                        onClick={() => setShowUserMenu(false)}
+                      >
+                        Đơn hàng của tôi
+                      </Link>
+                      <Link
+                        href="/my-payments"
+                        className="block px-4 py-2 text-xs text-gray-700 hover:bg-purple-50 transition"
+                        onClick={() => setShowUserMenu(false)}
+                      >
+                        Lịch sử thanh toán
+                      </Link>
+                      {currentUser.role === "ADMIN" && (
+                        <Link
+                          href="/admin"
+                          className="block px-4 py-2 text-xs text-purple-700 hover:bg-purple-50 transition font-semibold"
+                          onClick={() => setShowUserMenu(false)}
+                        >
+                          Quản trị hệ thống
+                        </Link>
+                      )}
+                      <button
+                        onClick={handleLogout}
+                        className="w-full text-left px-4 py-2 text-xs text-red-600 hover:bg-red-50 transition flex items-center gap-2"
+                      >
+                        <LogOut className="w-3 h-3" />
+                        Đăng xuất
+                      </button>
+                    </div>
+                  </>
+                )}
+              </div>
+            ) : (
+              <Link
+                href="/login"
+                className="px-3 py-1 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-xs font-semibold rounded-full hover:from-purple-700 hover:to-pink-700 transition"
+              >
+                Đăng nhập
+              </Link>
+            )}
+
             {/* Cart */}
             <Link
               href="/cart"
@@ -183,8 +281,139 @@ export default function HeaderMain() {
                 </button>
               </div>
 
-              {/* Cart */}
+              {/* User Menu or Register & Cart */}
               <div className="flex items-center gap-4">
+                {currentUser ? (
+                  <div className="relative">
+                    <button
+                      onClick={() => setShowUserMenu(!showUserMenu)}
+                      className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-100 hover:bg-purple-200 transition"
+                    >
+                      <User className="w-4 h-4 text-purple-600" />
+                      <span className="text-sm font-medium text-purple-900">
+                        {currentUser.name}
+                      </span>
+                    </button>
+
+                    {showUserMenu && (
+                      <>
+                        <div
+                          className="fixed inset-0 z-10"
+                          onClick={() => setShowUserMenu(false)}
+                        />
+                        <div className="absolute right-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-20">
+                          <div className="px-4 py-3 border-b border-gray-100">
+                            <p className="text-sm font-semibold text-gray-900">
+                              {currentUser.name}
+                            </p>
+                            <p className="text-xs text-gray-500 truncate">
+                              {currentUser.email}
+                            </p>
+                            <p className="text-xs text-purple-600 font-medium mt-1">
+                              {currentUser.role === "ADMIN"
+                                ? "Quản trị viên"
+                                : currentUser.role === "LEADER"
+                                ? "Leader"
+                                : currentUser.role === "MENTOR"
+                                ? "Mentor"
+                                : "Khách hàng"}
+                            </p>
+                          </div>
+                          <Link
+                            href="/my-orders"
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-purple-50 transition"
+                            onClick={() => setShowUserMenu(false)}
+                          >
+                            <div className="flex items-center gap-2">
+                              <svg
+                                className="w-4 h-4"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth={2}
+                                  d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+                                />
+                              </svg>
+                              Đơn hàng của tôi
+                            </div>
+                          </Link>
+                          <Link
+                            href="/my-payments"
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-purple-50 transition"
+                            onClick={() => setShowUserMenu(false)}
+                          >
+                            <div className="flex items-center gap-2">
+                              <svg
+                                className="w-4 h-4"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth={2}
+                                  d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
+                                />
+                              </svg>
+                              Lịch sử thanh toán
+                            </div>
+                          </Link>
+                          {currentUser.role === "ADMIN" && (
+                            <Link
+                              href="/admin"
+                              className="block px-4 py-2 text-sm text-purple-700 hover:bg-purple-50 transition font-semibold border-t border-gray-100 mt-1 pt-3"
+                              onClick={() => setShowUserMenu(false)}
+                            >
+                              <div className="flex items-center gap-2">
+                                <svg
+                                  className="w-4 h-4"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+                                  />
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                                  />
+                                </svg>
+                                Quản trị hệ thống
+                              </div>
+                            </Link>
+                          )}
+                          <button
+                            onClick={handleLogout}
+                            className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition border-t border-gray-100 mt-1 pt-3"
+                          >
+                            <div className="flex items-center gap-2">
+                              <LogOut className="w-4 h-4" />
+                              Đăng xuất
+                            </div>
+                          </button>
+                        </div>
+                      </>
+                    )}
+                  </div>
+                ) : (
+                  <Link
+                    href="/login"
+                    className="px-4 py-1.5 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-sm font-semibold rounded-full hover:from-purple-700 hover:to-pink-700 transition shadow-md hover:shadow-lg"
+                  >
+                    Đăng nhập
+                  </Link>
+                )}
                 <Link
                   href="/cart"
                   style={{ color: "#662d91" }}

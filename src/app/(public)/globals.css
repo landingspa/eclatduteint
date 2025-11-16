@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+/* Global button cursor */
+button {
+  cursor: pointer;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;

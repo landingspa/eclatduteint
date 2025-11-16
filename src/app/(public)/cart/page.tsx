@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { useTranslations, useLocale } from "next-intl";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -13,10 +14,12 @@ import {
   type CartItem,
 } from "@/utils/cart";
 import { Product } from "@/data/products";
+import { authService } from "@/service";
 
 const CartPage = () => {
   const t = useTranslations("cartPage");
   const locale = useLocale();
+  const router = useRouter();
   const [cart, setCart] = useState<CartItem[]>([]);
   const [showOrderForm, setShowOrderForm] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -24,6 +27,7 @@ const CartPage = () => {
     "idle"
   );
   const [orderNumber, setOrderNumber] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   // Form state
   const [formData, setFormData] = useState({
@@ -42,6 +46,9 @@ const CartPage = () => {
   });
 
   useEffect(() => {
+    // Check if user is logged in
+    setIsLoggedIn(authService.isAuthenticated());
+
     // Load cart on mount
     setCart(getCart());
 
@@ -567,12 +574,29 @@ TỔNG CỘNG: ${formatPrice(total)}₫
                     </div>
                   </div>
 
-                  <button
-                    onClick={() => setShowOrderForm(true)}
-                    className="w-full bg-[#662d91] text-white py-3 rounded-lg hover:bg-[#551f7a] transition-colors font-semibold"
-                  >
-                    {t("proceedToCheckout")}
-                  </button>
+                  {isLoggedIn ? (
+                    <button
+                      onClick={() => router.push("/checkout")}
+                      className="w-full bg-[#662d91] text-white py-3 rounded-lg hover:bg-[#551f7a] transition-colors font-semibold"
+                    >
+                      {t("proceedToCheckout")}
+                    </button>
+                  ) : (
+                    <div className="space-y-3">
+                      <button
+                        onClick={() => router.push("/login?redirect=/checkout")}
+                        className="w-full bg-[#662d91] text-white py-3 rounded-lg hover:bg-[#551f7a] transition-colors font-semibold"
+                      >
+                        Đăng nhập để thanh toán
+                      </button>
+                      <button
+                        onClick={() => setShowOrderForm(true)}
+                        className="w-full bg-white text-[#662d91] border-2 border-[#662d91] py-3 rounded-lg hover:bg-purple-50 transition-colors font-semibold"
+                      >
+                        Đặt hàng không cần tài khoản
+                      </button>
+                    </div>
+                  )}
                 </div>
               ) : (
                 <div className="bg-white rounded-lg shadow-md p-6">
