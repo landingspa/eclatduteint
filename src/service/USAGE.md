@@ -427,4 +427,4 @@ Xem file `API_DOCUMENTATION.md` để biết chi tiết về:
 - Request/Response formats
 - Error codes
 - Available endpoints
-- Swagger UI: `http://localhost:3000/api/docs`
+- Swagger UI: `https://server.eclatduteint.store/docs`

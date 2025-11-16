@@ -23,7 +23,7 @@ export class BaseService {
 
   constructor(
     baseURL: string = process.env.NEXT_PUBLIC_API_URL ||
-      "http://localhost:3000/api"
+      "https://server.eclatduteint.store"
   ) {
     this.baseURL = baseURL;
 
