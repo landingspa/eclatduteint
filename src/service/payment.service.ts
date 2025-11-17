@@ -16,14 +16,30 @@ export interface Payment {
   user?: User;
 }
 
-export interface CreatePaymentIntentData {
+export interface CreatePaymentLinkData {
   orderId: string;
   amount: number;
+  returnUrl?: string;
+  cancelUrl?: string;
 }
 
-export interface CreatePaymentIntentResponse {
-  clientSecret: string;
+export interface CreatePaymentLinkResponse {
+  checkoutUrl: string;
   paymentId: string;
+  orderCode: number;
+}
+
+export interface PaymentInfo {
+  id: string;
+  orderCode: number;
+  amount: number;
+  amountPaid: number;
+  amountRemaining: number;
+  status: string;
+  createdAt: string;
+  transactions?: any[];
+  cancellationReason?: string;
+  canceledAt?: string;
 }
 
 /**
@@ -35,16 +51,29 @@ export class PaymentService extends BaseService {
   }
 
   /**
-   * Create payment intent
-   * POST /payments/create-intent
+   * Create PayOS payment link
+   * POST /payments/create
    */
-  async createPaymentIntent(
-    data: CreatePaymentIntentData
-  ): Promise<CreatePaymentIntentResponse> {
-    return this.post<CreatePaymentIntentResponse>(
-      "/payments/create-intent",
-      data
-    );
+  async createPaymentLink(
+    data: CreatePaymentLinkData
+  ): Promise<CreatePaymentLinkResponse> {
+    return this.post<CreatePaymentLinkResponse>("/payments/create", data);
+  }
+
+  /**
+   * Get payment info by order code
+   * GET /payments/info/:orderCode
+   */
+  async getPaymentInfo(orderCode: number): Promise<PaymentInfo> {
+    return this.get<PaymentInfo>(`/payments/info/${orderCode}`);
+  }
+
+  /**
+   * Cancel payment
+   * POST /payments/cancel/:orderCode
+   */
+  async cancelPayment(orderCode: number): Promise<PaymentInfo> {
+    return this.post<PaymentInfo>(`/payments/cancel/${orderCode}`, {});
   }
 
   /**

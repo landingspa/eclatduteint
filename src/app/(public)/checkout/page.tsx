@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { authService, orderService } from "@/service";
+import { authService, orderService, paymentService } from "@/service";
 import { getCart, clearCart, getCartTotal, type CartItem } from "@/utils/cart";
 import { Product } from "@/data/products";
 
@@ -12,6 +12,7 @@ export default function CheckoutPage() {
   const [currentUser, setCurrentUser] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [paymentMethod, setPaymentMethod] = useState<"cod" | "online">("cod");
 
   // Form data
   const [formData, setFormData] = useState({
@@ -153,7 +154,40 @@ export default function CheckoutPage() {
 
       const order = await orderService.createOrder(orderData);
 
-      // Store order info for success page
+      // If online payment selected, create payment link
+      if (paymentMethod === "online") {
+        try {
+          const paymentLink = await paymentService.createPaymentLink({
+            orderId: order.id,
+            amount: order.totalAmount,
+            returnUrl: `${window.location.origin}/payment/success`,
+            cancelUrl: `${window.location.origin}/payment/cancel`,
+          });
+
+          // Store order code for later verification
+          sessionStorage.setItem(
+            "paymentOrderCode",
+            paymentLink.orderCode.toString()
+          );
+          sessionStorage.setItem("orderId", order.id);
+
+          // Clear cart before redirect
+          clearCart();
+
+          // Redirect to PayOS
+          window.location.href = paymentLink.checkoutUrl;
+          return;
+        } catch (error: any) {
+          console.error("Payment link creation error:", error);
+          alert(
+            error.message || "Không thể tạo link thanh toán. Vui lòng thử lại!"
+          );
+          setIsSubmitting(false);
+          return;
+        }
+      }
+
+      // COD: Store order info for success page
       sessionStorage.setItem(
         "lastOrder",
         JSON.stringify({
@@ -333,6 +367,79 @@ export default function CheckoutPage() {
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#662d91] focus:border-transparent"
                       placeholder="Ghi chú thêm về đơn hàng (không bắt buộc)"
                     />
+                  </div>
+
+                  {/* Payment Method */}
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-3">
+                      Phương thức thanh toán{" "}
+                      <span className="text-red-500">*</span>
+                    </label>
+                    <div className="space-y-3">
+                      <label
+                        className={`flex items-start p-4 border-2 rounded-lg cursor-pointer transition ${
+                          paymentMethod === "cod"
+                            ? "border-[#662d91] bg-purple-50"
+                            : "border-gray-300 hover:border-purple-300"
+                        }`}
+                      >
+                        <input
+                          type="radio"
+                          name="paymentMethod"
+                          value="cod"
+                          checked={paymentMethod === "cod"}
+                          onChange={(e) =>
+                            setPaymentMethod(e.target.value as "cod" | "online")
+                          }
+                          className="mt-1 w-4 h-4 text-[#662d91] focus:ring-[#662d91]"
+                        />
+                        <div className="ml-3 flex-1">
+                          <div className="flex items-center gap-2">
+                            <span className="font-medium text-gray-900">
+                              Thanh toán khi nhận hàng (COD)
+                            </span>
+                            <span className="px-2 py-0.5 bg-green-100 text-green-700 text-xs rounded-full">
+                              Miễn phí
+                            </span>
+                          </div>
+                          <p className="text-sm text-gray-600 mt-1">
+                            Thanh toán bằng tiền mặt khi nhận hàng
+                          </p>
+                        </div>
+                      </label>
+
+                      <label
+                        className={`flex items-start p-4 border-2 rounded-lg cursor-pointer transition ${
+                          paymentMethod === "online"
+                            ? "border-[#662d91] bg-purple-50"
+                            : "border-gray-300 hover:border-purple-300"
+                        }`}
+                      >
+                        <input
+                          type="radio"
+                          name="paymentMethod"
+                          value="online"
+                          checked={paymentMethod === "online"}
+                          onChange={(e) =>
+                            setPaymentMethod(e.target.value as "cod" | "online")
+                          }
+                          className="mt-1 w-4 h-4 text-[#662d91] focus:ring-[#662d91]"
+                        />
+                        <div className="ml-3 flex-1">
+                          <div className="flex items-center gap-2">
+                            <span className="font-medium text-gray-900">
+                              Thanh toán online
+                            </span>
+                            <span className="px-2 py-0.5 bg-blue-100 text-blue-700 text-xs rounded-full">
+                              PayOS
+                            </span>
+                          </div>
+                          <p className="text-sm text-gray-600 mt-1">
+                            Chuyển khoản ngân hàng, QR Code, Visa/Master
+                          </p>
+                        </div>
+                      </label>
+                    </div>
                   </div>
                 </div>
 
