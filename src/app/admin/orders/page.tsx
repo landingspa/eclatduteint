@@ -27,7 +27,10 @@ export default function OrdersPage() {
     }
 
     const user = authService.getCurrentUser();
-    if (!user || !["ADMIN", "LEADER", "MENTOR"].includes(user.role)) {
+    if (
+      !user ||
+      !["ADMIN", "SUPER_ADMIN", "LEADER", "MENTOR"].includes(user.role)
+    ) {
       router.push("/admin/login");
       return;
     }
@@ -40,9 +43,9 @@ export default function OrdersPage() {
       setLoading(true);
       const user = authService.getCurrentUser();
 
-      // Admin can see all orders, others see their own
+      // Admin and Super Admin can see all orders, others see their own
       const data =
-        user?.role === "ADMIN"
+        user?.role === "ADMIN" || user?.role === "SUPER_ADMIN"
           ? await orderService.getAllOrders()
           : await orderService.getMyOrders();
 
@@ -212,7 +215,8 @@ export default function OrdersPage() {
                     >
                       Xem
                     </button>
-                    {authService.getCurrentUser()?.role === "ADMIN" && (
+                    {(authService.getCurrentUser()?.role === "ADMIN" ||
+                      authService.getCurrentUser()?.role === "SUPER_ADMIN") && (
                       <button
                         onClick={() =>
                           handleUpdateStatus(
@@ -339,7 +343,8 @@ export default function OrdersPage() {
               </div>
 
               {/* Actions */}
-              {authService.getCurrentUser()?.role === "ADMIN" && (
+              {(authService.getCurrentUser()?.role === "ADMIN" ||
+                authService.getCurrentUser()?.role === "SUPER_ADMIN") && (
                 <div className="flex gap-2">
                   <button
                     onClick={() =>

@@ -187,7 +187,18 @@ export default function CheckoutPage() {
         }
       }
 
-      // COD: Store order info for success page
+      // COD: Create payment record with PENDING status
+      try {
+        await paymentService.createCODPayment({
+          orderId: order.id,
+          amount: order.totalAmount,
+        });
+      } catch (error) {
+        console.error("Failed to create COD payment record:", error);
+        // Continue anyway, order is already created
+      }
+
+      // Store order info for success page
       sessionStorage.setItem(
         "lastOrder",
         JSON.stringify({

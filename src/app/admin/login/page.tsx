@@ -26,7 +26,9 @@ function LoginForm() {
         // If there's a redirect URL, go there
         if (redirect) {
           router.push(redirect);
-        } else if (["ADMIN", "LEADER", "MENTOR"].includes(user.role)) {
+        } else if (
+          ["ADMIN", "SUPER_ADMIN", "LEADER", "MENTOR"].includes(user.role)
+        ) {
           router.push("/admin");
         } else {
           router.push("/");
@@ -52,7 +54,10 @@ function LoginForm() {
       // Redirect based on redirect URL or user role
       if (redirectUrl) {
         router.push(redirectUrl);
-      } else if (response.user.role === "ADMIN") {
+      } else if (
+        response.user.role === "ADMIN" ||
+        response.user.role === "SUPER_ADMIN"
+      ) {
         router.push("/admin");
       } else {
         // Non-admin users go to their orders page

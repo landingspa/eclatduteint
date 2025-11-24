@@ -350,7 +350,7 @@ GET    /reports/dashboard   ✅ Used in dashboard
 **.env.local**
 
 ```env
-NEXT_PUBLIC_API_URL=http://localhost:3000
+NEXT_PUBLIC_API_URL=https://server.eclatduteint.store/api
 # hoặc production URL
 NEXT_PUBLIC_API_URL=https://api.eclatduteint.com
 ```

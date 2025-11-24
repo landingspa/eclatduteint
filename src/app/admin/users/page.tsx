@@ -35,8 +35,10 @@ export default function UsersPage() {
     }
 
     const currentUser = authService.getCurrentUser();
-    if (!currentUser || currentUser.role !== "ADMIN") {
-      alert("Bạn không có quyền truy cập trang này");
+    if (!currentUser || currentUser.role !== "SUPER_ADMIN") {
+      alert(
+        "Bạn không có quyền truy cập trang này. Chỉ SUPER_ADMIN mới được phép."
+      );
       router.push("/admin");
       return;
     }
@@ -407,7 +409,7 @@ export default function UsersPage() {
                     <span
                       className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
                       ${
-                        user.role === "ADMIN"
+                        user.role === "ADMIN" || user.role === "SUPER_ADMIN"
                           ? "bg-purple-100 text-purple-800"
                           : user.role === "LEADER"
                           ? "bg-blue-100 text-blue-800"

@@ -398,7 +398,7 @@ const handleCheckout = async (cartItems: OrderItem[]) => {
 Thêm vào `.env.local`:
 
 ```env
-NEXT_PUBLIC_API_URL=http://localhost:3000
+NEXT_PUBLIC_API_URL=https://server.eclatduteint.store/api
 NEXT_PUBLIC_STRIPE_KEY=pk_test_...
 ```
 

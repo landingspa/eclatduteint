@@ -7,6 +7,9 @@ export interface User {
   role: UserRole;
   region?: string;
   mentorId?: string;
+  referralCode?: string;
+  referredByCode?: string | null;
+  discountTier?: string;
   createdAt?: string;
   updatedAt?: string;
 }
@@ -44,9 +47,10 @@ export class AuthService extends BaseService {
   async register(data: RegisterData): Promise<AuthResponse> {
     const response = await this.post<AuthResponse>("/auth/register", data);
 
-    // Store token after successful registration
+    // Store token and user data after successful registration
     if (response.access_token) {
       this.setToken(response.access_token);
+      this.setCurrentUser(response.user);
     }
 
     return response;
@@ -59,9 +63,10 @@ export class AuthService extends BaseService {
   async login(credentials: LoginCredentials): Promise<AuthResponse> {
     const response = await this.post<AuthResponse>("/auth/login", credentials);
 
-    // Store token after successful login
+    // Store token and user data after successful login
     if (response.access_token) {
       this.setToken(response.access_token);
+      this.setCurrentUser(response.user);
     }
 
     return response;

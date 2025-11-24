@@ -35,6 +35,12 @@ export function getRoleDisplayName(role: UserRole): string {
     MENTOR: "Mentor",
     LEADER: "Leader",
     ADMIN: "Admin",
+    SUPER_ADMIN: "Super Admin",
+    EMS: "EMS",
+    ERC: "ERC",
+    VIP_MASTER: "VIP Master",
+    MENTEE: "Mentee",
+    LOYALTY: "Loyalty",
   };
   return roleNames[role] || role;
 }
@@ -221,7 +227,9 @@ export function isClient(): boolean {
  * Get API base URL
  */
 export function getApiBaseUrl(): string {
-  return process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+  return (
+    process.env.NEXT_PUBLIC_API_URL || "https://server.eclatduteint.store/api"
+  );
 }
 
 /**

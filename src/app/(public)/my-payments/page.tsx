@@ -2,8 +2,15 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { authService, paymentService } from "@/service";
+import {
+  authService,
+  paymentService,
+  userService,
+  commissionService,
+} from "@/service";
 import type { Payment } from "@/service/payment.service";
+import type { UserReferralsResponse } from "@/service/user.service";
+import type { Commission } from "@/service/commission.service";
 import {
   formatVND,
   formatDate,
@@ -17,7 +24,14 @@ import {
 export default function MyPaymentsPage() {
   const router = useRouter();
   const [payments, setPayments] = useState<Payment[]>([]);
+  const [referrals, setReferrals] = useState<UserReferralsResponse | null>(
+    null
+  );
+  const [activeCommission, setActiveCommission] = useState<Commission | null>(
+    null
+  );
   const [loading, setLoading] = useState(true);
+  const [loadingReferrals, setLoadingReferrals] = useState(true);
   const [error, setError] = useState("");
   const [selectedPayment, setSelectedPayment] = useState<Payment | null>(null);
   const [filterStatus, setFilterStatus] = useState<string>("all");
@@ -29,6 +43,8 @@ export default function MyPaymentsPage() {
     }
 
     loadPayments();
+    loadReferrals();
+    loadCommission();
   }, [router]);
 
   const loadPayments = async () => {
@@ -41,6 +57,87 @@ export default function MyPaymentsPage() {
     } finally {
       setLoading(false);
     }
+  };
+
+  const loadReferrals = async () => {
+    try {
+      setLoadingReferrals(true);
+      const currentUser = authService.getCurrentUser();
+      if (currentUser?.id) {
+        const data = await userService.getUserReferrals(currentUser.id);
+        setReferrals(data);
+      }
+    } catch (err: any) {
+      console.error("Failed to load referrals:", err);
+    } finally {
+      setLoadingReferrals(false);
+    }
+  };
+
+  const loadCommission = async () => {
+    try {
+      const commission = await commissionService.getActive();
+      setActiveCommission(commission);
+    } catch (err: any) {
+      console.error("Failed to load commission:", err);
+    }
+  };
+
+  const calculateCommission = (
+    totalRevenue: number,
+    userTier: string
+  ): number => {
+    if (!activeCommission || totalRevenue === 0) return 0;
+
+    let percentage = 0;
+    // Normalize tier - handle both role and discountTier
+    const normalizedTier = userTier?.toUpperCase() || "";
+
+    switch (normalizedTier) {
+      case "VIP":
+      case "VIP_MASTER":
+        percentage = activeCommission.vipPercent;
+        break;
+      case "MENTOR":
+        percentage = activeCommission.mentorPercent;
+        break;
+      case "MENTEE":
+        percentage = activeCommission.menteePercent;
+        break;
+      case "LOYALTY":
+        percentage = activeCommission.loyaltyPercent;
+        break;
+      default:
+        percentage = 0;
+    }
+
+    return (totalRevenue * percentage) / 100;
+  };
+
+  const getCommissionPercent = (userTier: string): number => {
+    if (!activeCommission) return 0;
+
+    const normalizedTier = userTier?.toUpperCase() || "";
+
+    switch (normalizedTier) {
+      case "VIP":
+      case "VIP_MASTER":
+        return activeCommission.vipPercent;
+      case "MENTOR":
+        return activeCommission.mentorPercent;
+      case "MENTEE":
+        return activeCommission.menteePercent;
+      case "LOYALTY":
+        return activeCommission.loyaltyPercent;
+      default:
+        return 0;
+    }
+  };
+
+  const getUserTier = (): string => {
+    const user = authService.getCurrentUser();
+    // Prefer discountTier, fallback to role if discountTier is not available
+    return user?.discountTier || user?.role || "NONE";
   };
 
   const filteredPayments = payments.filter((payment) => {
@@ -491,6 +588,320 @@ export default function MyPaymentsPage() {
               </div>
             </div>
           </>
+        )}
+
+        {/* F1 Referrals Section */}
+        {!loadingReferrals && referrals && referrals.totalReferrals > 0 && (
+          <div id="f1-referrals" className="mt-8 md:mt-12 scroll-mt-24">
+            <div className="mb-6">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
+                  <svg
+                    className="w-5 h-5 md:w-6 md:h-6 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h2 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                    Mạng lưới F1 của bạn
+                  </h2>
+                  <p className="text-xs md:text-sm text-gray-600">
+                    {referrals.totalReferrals} người đã tham gia qua mã giới
+                    thiệu của bạn
+                  </p>
+                </div>
+              </div>
+
+              {/* F1 Statistics */}
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+                <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl shadow-sm border border-purple-200 p-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-purple-200 rounded-lg flex items-center justify-center">
+                      <svg
+                        className="w-5 h-5 text-purple-700"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                        />
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="text-xs text-purple-700">Mã giới thiệu</p>
+                      <p className="text-lg md:text-xl font-bold text-purple-900 font-mono">
+                        {referrals.referralCode}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div className="bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-xl shadow-sm border border-indigo-200 p-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-indigo-200 rounded-lg flex items-center justify-center">
+                      <svg
+                        className="w-5 h-5 text-indigo-700"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
+                        />
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="text-xs text-indigo-700">Tổng F1</p>
+                      <p className="text-xl md:text-2xl font-bold text-indigo-900">
+                        {referrals.totalReferrals}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div className="bg-gradient-to-br from-pink-50 to-pink-100 rounded-xl shadow-sm border border-pink-200 p-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-pink-200 rounded-lg flex items-center justify-center">
+                      <svg
+                        className="w-5 h-5 text-pink-700"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="text-xs text-pink-700">Doanh thu F1</p>
+                      <p className="text-lg md:text-xl font-bold text-pink-900 break-words">
+                        {formatVND(referrals.totalAmount)}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                {activeCommission && (
+                  <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl shadow-sm border border-green-200 p-4">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 bg-green-200 rounded-lg flex items-center justify-center">
+                        <svg
+                          className="w-5 h-5 text-green-700"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
+                          />
+                        </svg>
+                      </div>
+                      <div>
+                        <p className="text-xs text-green-700">
+                          💰 Hoa hồng ({getUserTier()}:{" "}
+                          {getCommissionPercent(getUserTier())}%)
+                        </p>
+                        <p className="text-lg md:text-xl font-bold text-green-900 break-words">
+                          {formatVND(
+                            calculateCommission(
+                              referrals.totalAmount,
+                              getUserTier()
+                            )
+                          )}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+              {activeCommission && (
+                <div className="mb-6 p-4 bg-blue-50 border border-blue-200 rounded-xl">
+                  <div className="flex items-start gap-3">
+                    <svg
+                      className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                    <div className="flex-1">
+                      <p className="text-sm font-semibold text-blue-900 mb-1">
+                        📌 Công thức tính hoa hồng
+                      </p>
+                      <p className="text-xs md:text-sm text-blue-800">
+                        Hoa hồng = Doanh thu F1 × % tier của bạn (
+                        <span className="font-semibold">
+                          {getUserTier()}: {getCommissionPercent(getUserTier())}
+                          %
+                        </span>
+                        )
+                      </p>
+                      <p className="text-xs text-blue-700 mt-2">
+                        Chính sách:{" "}
+                        {activeCommission.description ||
+                          commissionService.getOptionLabel(
+                            activeCommission.option
+                          )}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* F1 List */}
+            <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+              <div className="px-4 md:px-6 py-4 bg-gradient-to-r from-purple-50 to-pink-50 border-b border-purple-100">
+                <h3 className="text-base md:text-lg font-semibold text-gray-900">
+                  📋 Danh sách F1 ({referrals.referrals.length})
+                </h3>
+              </div>
+
+              {/* Mobile: Card View */}
+              <div className="md:hidden divide-y divide-gray-100">
+                {referrals.referrals.map((referral) => (
+                  <div
+                    key={referral.id}
+                    className="p-4 hover:bg-gray-50 transition"
+                  >
+                    <div className="flex items-start justify-between mb-3">
+                      <div className="flex-1 min-w-0">
+                        <h4 className="text-sm font-semibold text-gray-900 break-words">
+                          {referral.name}
+                        </h4>
+                        <p className="text-xs text-gray-600 break-all mt-0.5">
+                          {referral.email}
+                        </p>
+                      </div>
+                      <div className="ml-3 flex flex-col items-end gap-1">
+                        <span className="px-2 py-0.5 bg-purple-100 text-purple-800 text-xs font-semibold rounded">
+                          {referral.discountTier}
+                        </span>
+                        <span className="px-2 py-0.5 bg-gray-100 text-gray-800 text-xs font-semibold rounded">
+                          {referral.role}
+                        </span>
+                      </div>
+                    </div>
+                    <div className="grid grid-cols-2 gap-3">
+                      <div className="bg-blue-50 rounded-lg p-2 border border-blue-100">
+                        <p className="text-xs text-blue-700">Đơn hàng</p>
+                        <p className="text-lg font-bold text-blue-900">
+                          {referral.totalOrders}
+                        </p>
+                      </div>
+                      <div className="bg-green-50 rounded-lg p-2 border border-green-100">
+                        <p className="text-xs text-green-700">Doanh thu</p>
+                        <p className="text-sm font-bold text-green-900 break-words">
+                          {formatVND(referral.totalOrderAmount)}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="mt-2 text-xs text-gray-500">
+                      Tham gia: {formatDate(referral.createdAt)}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Desktop: Table View */}
+              <div className="hidden md:block overflow-x-auto">
+                <table className="w-full">
+                  <thead className="bg-gray-50 border-b border-gray-200">
+                    <tr>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
+                        Thông tin
+                      </th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
+                        Tier
+                      </th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
+                        Role
+                      </th>
+                      <th className="px-6 py-3 text-right text-xs font-medium text-gray-700 uppercase tracking-wider">
+                        Đơn hàng
+                      </th>
+                      <th className="px-6 py-3 text-right text-xs font-medium text-gray-700 uppercase tracking-wider">
+                        Doanh thu
+                      </th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
+                        Ngày tham gia
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-gray-200">
+                    {referrals.referrals.map((referral) => (
+                      <tr
+                        key={referral.id}
+                        className="hover:bg-gray-50 transition"
+                      >
+                        <td className="px-6 py-4">
+                          <div>
+                            <div className="text-sm font-medium text-gray-900">
+                              {referral.name}
+                            </div>
+                            <div className="text-xs text-gray-500 break-all">
+                              {referral.email}
+                            </div>
+                          </div>
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <span className="px-3 py-1 bg-purple-100 text-purple-800 text-xs font-semibold rounded-full">
+                            {referral.discountTier}
+                          </span>
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <span className="px-3 py-1 bg-gray-100 text-gray-800 text-xs font-semibold rounded-full">
+                            {referral.role}
+                          </span>
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-right">
+                          <div className="text-sm font-semibold text-blue-600">
+                            {referral.totalOrders}
+                          </div>
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-right">
+                          <div className="text-sm font-semibold text-green-600">
+                            {formatVND(referral.totalOrderAmount)}
+                          </div>
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <div className="text-xs text-gray-600">
+                            {formatDate(referral.createdAt)}
+                          </div>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
         )}
 
         {/* Payment Detail Modal */}

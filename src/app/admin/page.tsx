@@ -26,8 +26,8 @@ export default function AdminDashboard() {
       return;
     }
 
-    // Only admins can access dashboard, others redirect to their personal pages
-    if (currentUser.role !== "ADMIN") {
+    // Only admins and super admins can access dashboard, others redirect to their personal pages
+    if (currentUser.role !== "ADMIN" && currentUser.role !== "SUPER_ADMIN") {
       router.push("/admin/my-orders");
       return;
     }
@@ -224,7 +224,56 @@ export default function AdminDashboard() {
         <h2 className="text-xl font-semibold text-gray-900 mb-4">
           Thao tác nhanh
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+          {user?.role === "SUPER_ADMIN" && (
+            <button
+              onClick={() => router.push("/admin/discount-tiers")}
+              className="flex items-center p-4 border-2 border-gray-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition cursor-pointer"
+            >
+              <svg
+                className="w-6 h-6 text-blue-600 mr-3"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              <div className="text-left">
+                <p className="font-semibold text-gray-900">Chiết khấu</p>
+                <p className="text-sm text-gray-600">Quản lý cấp độ</p>
+              </div>
+            </button>
+          )}
+          {user?.role === "SUPER_ADMIN" && (
+            <button
+              onClick={() => router.push("/admin/commissions")}
+              className="flex items-center p-4 border-2 border-gray-200 rounded-lg hover:border-yellow-500 hover:bg-yellow-50 transition cursor-pointer"
+            >
+              <svg
+                className="w-6 h-6 text-yellow-600 mr-3"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"
+                />
+              </svg>
+              <div className="text-left">
+                <p className="font-semibold text-gray-900">Hoa hồng</p>
+                <p className="text-sm text-gray-600">Cấu hình options</p>
+              </div>
+            </button>
+          )}
+
           <button
             onClick={() => router.push("/admin/orders")}
             className="flex items-center p-4 border-2 border-gray-200 rounded-lg hover:border-purple-500 hover:bg-purple-50 transition cursor-pointer"
@@ -243,18 +292,18 @@ export default function AdminDashboard() {
               />
             </svg>
             <div className="text-left">
-              <p className="font-semibold text-gray-900">Xem đơn hàng</p>
-              <p className="text-sm text-gray-600">Quản lý tất cả đơn hàng</p>
+              <p className="font-semibold text-gray-900">Đơn hàng</p>
+              <p className="text-sm text-gray-600">Quản lý đơn hàng</p>
             </div>
           </button>
 
-          {user?.role === "ADMIN" && (
+          {user?.role === "SUPER_ADMIN" && (
             <button
               onClick={() => router.push("/admin/users")}
-              className="flex items-center p-4 border-2 border-gray-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition cursor-pointer"
+              className="flex items-center p-4 border-2 border-gray-200 rounded-lg hover:border-indigo-500 hover:bg-indigo-50 transition cursor-pointer"
             >
               <svg
-                className="w-6 h-6 text-blue-600 mr-3"
+                className="w-6 h-6 text-indigo-600 mr-3"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -267,10 +316,39 @@ export default function AdminDashboard() {
                 />
               </svg>
               <div className="text-left">
-                <p className="font-semibold text-gray-900">
-                  Quản lý người dùng
-                </p>
-                <p className="text-sm text-gray-600">Thêm/sửa người dùng</p>
+                <p className="font-semibold text-gray-900">Người dùng</p>
+                <p className="text-sm text-gray-600">Quản lý users</p>
+              </div>
+            </button>
+          )}
+
+          {user?.role === "SUPER_ADMIN" && (
+            <button
+              onClick={() => router.push("/admin/payos-config")}
+              className="flex items-center p-4 border-2 border-gray-200 rounded-lg hover:border-orange-500 hover:bg-orange-50 transition cursor-pointer"
+            >
+              <svg
+                className="w-6 h-6 text-orange-600 mr-3"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+                />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                />
+              </svg>
+              <div className="text-left">
+                <p className="font-semibold text-gray-900">PayOS Config</p>
+                <p className="text-sm text-gray-600">Cấu hình thanh toán</p>
               </div>
             </button>
           )}
@@ -293,7 +371,7 @@ export default function AdminDashboard() {
               />
             </svg>
             <div className="text-left">
-              <p className="font-semibold text-gray-900">Xem báo cáo</p>
+              <p className="font-semibold text-gray-900">Báo cáo</p>
               <p className="text-sm text-gray-600">Phân tích doanh thu</p>
             </div>
           </button>

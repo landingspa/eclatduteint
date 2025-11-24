@@ -23,6 +23,11 @@ export interface CreatePaymentLinkData {
   cancelUrl?: string;
 }
 
+export interface CreateCODPaymentData {
+  orderId: string;
+  amount: number;
+}
+
 export interface CreatePaymentLinkResponse {
   checkoutUrl: string;
   paymentId: string;
@@ -58,6 +63,14 @@ export class PaymentService extends BaseService {
     data: CreatePaymentLinkData
   ): Promise<CreatePaymentLinkResponse> {
     return this.post<CreatePaymentLinkResponse>("/payments/create", data);
+  }
+
+  /**
+   * Create COD payment record
+   * POST /payments/cod
+   */
+  async createCODPayment(data: CreateCODPaymentData): Promise<Payment> {
+    return this.post<Payment>("/payments/cod", data);
   }
 
   /**

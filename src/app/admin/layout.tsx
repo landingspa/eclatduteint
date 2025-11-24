@@ -29,7 +29,9 @@ export default function AdminLayout({
     }
   };
 
-  const isAdmin = currentUser?.role === "ADMIN";
+  const isAdmin =
+    currentUser?.role === "ADMIN" || currentUser?.role === "SUPER_ADMIN";
+  const isSuperAdmin = currentUser?.role === "SUPER_ADMIN";
 
   // Don't render sidebar on login page
   if (!mounted || pathname === "/admin/login") {
@@ -109,7 +111,7 @@ export default function AdminLayout({
                 </span>
               </a>
 
-              {/* Admin Section - Only for Admin users */}
+              {/* Admin Section - For Admin and Super Admin users */}
               {isAdmin && (
                 <>
                   <div className="px-4 py-2 mt-6 border-t pt-6">
@@ -117,6 +119,39 @@ export default function AdminLayout({
                       Quản trị
                     </p>
                   </div>
+                  {isSuperAdmin && (
+                    <a
+                      href="/admin/system-settings"
+                      className={`block px-6 py-3 transition ${
+                        pathname === "/admin/system-settings"
+                          ? "bg-purple-50 text-purple-600 border-r-4 border-purple-600"
+                          : "text-gray-700 hover:bg-purple-50 hover:text-purple-600"
+                      }`}
+                    >
+                      <span className="flex items-center">
+                        <svg
+                          className="w-5 h-5 mr-3"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+                          />
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                          />
+                        </svg>
+                        Quản trị hệ thống
+                      </span>
+                    </a>
+                  )}
                   <a
                     href="/admin"
                     className={`block px-6 py-3 transition ${
@@ -167,31 +202,120 @@ export default function AdminLayout({
                       Quản lý đơn hàng
                     </span>
                   </a>
-                  <a
-                    href="/admin/users"
-                    className={`block px-6 py-3 transition ${
-                      pathname === "/admin/users"
-                        ? "bg-purple-50 text-purple-600 border-r-4 border-purple-600"
-                        : "text-gray-700 hover:bg-purple-50 hover:text-purple-600"
-                    }`}
-                  >
-                    <span className="flex items-center">
-                      <svg
-                        className="w-5 h-5 mr-3"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
-                        />
-                      </svg>
-                      Quản lý người dùng
-                    </span>
-                  </a>
+                  {isSuperAdmin && (
+                    <a
+                      href="/admin/users"
+                      className={`block px-6 py-3 transition ${
+                        pathname === "/admin/users"
+                          ? "bg-purple-50 text-purple-600 border-r-4 border-purple-600"
+                          : "text-gray-700 hover:bg-purple-50 hover:text-purple-600"
+                      }`}
+                    >
+                      <span className="flex items-center">
+                        <svg
+                          className="w-5 h-5 mr-3"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
+                          />
+                        </svg>
+                        Quản lý người dùng
+                      </span>
+                    </a>
+                  )}
+                  {isSuperAdmin && (
+                    <a
+                      href="/admin/discount-tiers"
+                      className={`block px-6 py-3 transition ${
+                        pathname === "/admin/discount-tiers"
+                          ? "bg-purple-50 text-purple-600 border-r-4 border-purple-600"
+                          : "text-gray-700 hover:bg-purple-50 hover:text-purple-600"
+                      }`}
+                    >
+                      <span className="flex items-center">
+                        <svg
+                          className="w-5 h-5 mr-3"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                          />
+                        </svg>
+                        Cấp chiết khấu
+                      </span>
+                    </a>
+                  )}
+                  {isSuperAdmin && (
+                    <a
+                      href="/admin/commissions"
+                      className={`block px-6 py-3 transition ${
+                        pathname === "/admin/commissions"
+                          ? "bg-purple-50 text-purple-600 border-r-4 border-purple-600"
+                          : "text-gray-700 hover:bg-purple-50 hover:text-purple-600"
+                      }`}
+                    >
+                      <span className="flex items-center">
+                        <svg
+                          className="w-5 h-5 mr-3"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"
+                          />
+                        </svg>
+                        Hoa hồng
+                      </span>
+                    </a>
+                  )}
+                  {isSuperAdmin && (
+                    <a
+                      href="/admin/payos-config"
+                      className={`block px-6 py-3 transition ${
+                        pathname === "/admin/payos-config"
+                          ? "bg-purple-50 text-purple-600 border-r-4 border-purple-600"
+                          : "text-gray-700 hover:bg-purple-50 hover:text-purple-600"
+                      }`}
+                    >
+                      <span className="flex items-center">
+                        <svg
+                          className="w-5 h-5 mr-3"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+                          />
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                          />
+                        </svg>
+                        PayOS Config
+                      </span>
+                    </a>
+                  )}
                   <a
                     href="/admin/payments"
                     className={`block px-6 py-3 transition ${

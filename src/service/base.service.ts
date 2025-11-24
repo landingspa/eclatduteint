@@ -13,7 +13,17 @@ export interface ApiResponse<T = any> {
   error?: string;
 }
 
-export type UserRole = "CUSTOMER" | "MENTOR" | "LEADER" | "ADMIN";
+export type UserRole =
+  | "CUSTOMER"
+  | "MENTOR"
+  | "LEADER"
+  | "ADMIN"
+  | "SUPER_ADMIN"
+  | "EMS"
+  | "ERC"
+  | "VIP_MASTER"
+  | "MENTEE"
+  | "LOYALTY";
 export type OrderStatus = "PENDING" | "CONFIRMED" | "PAID" | "CANCELLED";
 export type PaymentStatus = "PENDING" | "SUCCEEDED" | "FAILED";
 
@@ -23,7 +33,7 @@ export class BaseService {
 
   constructor(
     baseURL: string = process.env.NEXT_PUBLIC_API_URL ||
-      "https://eclatduteint.store/api"
+      "https://server.eclatduteint.store/api"
   ) {
     this.baseURL = baseURL;
 
@@ -46,9 +56,11 @@ export class BaseService {
     this.axiosInstance.interceptors.request.use(
       (config: InternalAxiosRequestConfig) => {
         // Always get token fresh from localStorage
+        // Support both 'token' and 'auth_token' for backward compatibility
         const token =
           typeof window !== "undefined"
-            ? localStorage.getItem("auth_token")
+            ? localStorage.getItem("token") ||
+              localStorage.getItem("auth_token")
             : null;
 
         // Add token to headers if available
@@ -105,6 +117,8 @@ export class BaseService {
    */
   public setToken(token: string): void {
     if (typeof window !== "undefined") {
+      // Store in both keys for backward compatibility
+      localStorage.setItem("token", token);
       localStorage.setItem("auth_token", token);
     }
   }
@@ -114,7 +128,9 @@ export class BaseService {
    */
   public getToken(): string | null {
     if (typeof window !== "undefined") {
-      return localStorage.getItem("auth_token");
+      return (
+        localStorage.getItem("token") || localStorage.getItem("auth_token")
+      );
     }
     return null;
   }
@@ -124,6 +140,7 @@ export class BaseService {
    */
   public clearToken(): void {
     if (typeof window !== "undefined") {
+      localStorage.removeItem("token");
       localStorage.removeItem("auth_token");
     }
   }

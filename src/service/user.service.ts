@@ -18,6 +18,24 @@ export interface CreateUserData {
   mentorId?: string;
 }
 
+export interface ReferralUser {
+  id: string;
+  email: string;
+  name: string;
+  role: string;
+  discountTier: string;
+  createdAt: string;
+  totalOrderAmount: number;
+  totalOrders: number;
+}
+
+export interface UserReferralsResponse {
+  referralCode: string;
+  totalReferrals: number;
+  totalAmount: number;
+  referrals: ReferralUser[];
+}
+
 /**
  * User Management Service (Admin only)
  */
@@ -69,6 +87,14 @@ export class UserService extends BaseService {
    */
   async deleteUser(id: string): Promise<{ message: string }> {
     return this.delete<{ message: string }>(`/users/${id}`);
+  }
+
+  /**
+   * Get user's referrals (F1 list)
+   * GET /users/:id/referrals
+   */
+  async getUserReferrals(userId: string): Promise<UserReferralsResponse> {
+    return this.get<UserReferralsResponse>(`/users/${userId}/referrals`);
   }
 
   /**
