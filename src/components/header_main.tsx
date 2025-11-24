@@ -6,7 +6,7 @@ import { setUserLocale } from "@/app/(public)/actions/locale";
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useTransition, useEffect } from "react";
-import { Menu, X, ShoppingCart, User, LogOut } from "lucide-react";
+import { Menu, X, ShoppingCart, User, LogOut, Copy, Check } from "lucide-react";
 import { getCart, getCartItemsCount } from "@/utils/cart";
 import { authService } from "@/service";
 import type { User as UserType } from "@/service/auth.service";
@@ -23,6 +23,7 @@ export default function HeaderMain() {
   const [cartItemsCount, setCartItemsCount] = useState(0);
   const [currentUser, setCurrentUser] = useState<UserType | null>(null);
   const [showUserMenu, setShowUserMenu] = useState(false);
+  const [copiedReferralCode, setCopiedReferralCode] = useState(false);
 
   useEffect(() => {
     // Check if user is logged in
@@ -85,6 +86,14 @@ export default function HeaderMain() {
       setShowUserMenu(false);
       window.dispatchEvent(new Event("authStateChanged"));
       router.push("/");
+    }
+  };
+
+  const copyReferralCode = () => {
+    if (currentUser?.referralCode) {
+      navigator.clipboard.writeText(currentUser.referralCode);
+      setCopiedReferralCode(true);
+      setTimeout(() => setCopiedReferralCode(false), 2000);
     }
   };
 
@@ -190,6 +199,29 @@ export default function HeaderMain() {
                           {currentUser.email}
                         </p>
                       </div>
+                      {currentUser.referralCode && (
+                        <div className="mx-3 my-2 p-2 bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg border border-purple-200">
+                          <p className="text-xs text-gray-600 mb-1.5">
+                            Mã giới thiệu
+                          </p>
+                          <div className="flex items-center gap-1.5">
+                            <code className="text-xs font-mono font-semibold text-purple-700 bg-white px-2 py-1 rounded flex-1 truncate">
+                              {currentUser.referralCode}
+                            </code>
+                            <button
+                              onClick={copyReferralCode}
+                              className="p-1.5 hover:bg-white rounded transition flex-shrink-0"
+                              title="Copy"
+                            >
+                              {copiedReferralCode ? (
+                                <Check className="w-3.5 h-3.5 text-green-600" />
+                              ) : (
+                                <Copy className="w-3.5 h-3.5 text-purple-600" />
+                              )}
+                            </button>
+                          </div>
+                        </div>
+                      )}
                       <Link
                         href="/my-orders"
                         className="block px-4 py-2 text-xs text-gray-700 hover:bg-purple-50 transition"
@@ -309,7 +341,7 @@ export default function HeaderMain() {
                           className="fixed inset-0 z-10"
                           onClick={() => setShowUserMenu(false)}
                         />
-                        <div className="absolute right-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-20">
+                        <div className="absolute right-0 mt-2 w-72 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-20">
                           <div className="px-4 py-3 border-b border-gray-100">
                             <p className="text-sm font-semibold text-gray-900">
                               {currentUser.name}
@@ -321,6 +353,40 @@ export default function HeaderMain() {
                               {currentUser.role}
                             </p>
                           </div>
+                          {currentUser.referralCode && (
+                            <div className="px-4 py-3 border-b border-gray-100">
+                              <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg border border-purple-200 p-3">
+                                <div className="flex items-center justify-between mb-2">
+                                  <p className="text-xs text-gray-700 font-medium">
+                                    Mã giới thiệu
+                                  </p>
+                                  {copiedReferralCode && (
+                                    <span className="text-xs text-green-600 font-medium">
+                                      ✓ Đã copy
+                                    </span>
+                                  )}
+                                </div>
+                                <div className="flex items-stretch gap-2">
+                                  <div className="flex-1 bg-white rounded-lg border border-purple-300 px-2.5 py-2 overflow-hidden">
+                                    <code className="text-xs font-mono font-semibold text-purple-700 break-all">
+                                      {currentUser.referralCode}
+                                    </code>
+                                  </div>
+                                  <button
+                                    onClick={copyReferralCode}
+                                    className="px-2.5 bg-white hover:bg-purple-100 rounded-lg transition border border-purple-300 flex-shrink-0"
+                                    title="Copy mã"
+                                  >
+                                    {copiedReferralCode ? (
+                                      <Check className="w-4 h-4 text-green-600" />
+                                    ) : (
+                                      <Copy className="w-4 h-4 text-purple-600" />
+                                    )}
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          )}
                           <Link
                             href="/my-orders"
                             className="block px-4 py-2 text-sm text-gray-700 hover:bg-purple-50 transition"

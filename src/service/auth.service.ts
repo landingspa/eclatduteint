@@ -24,7 +24,7 @@ export interface RegisterData {
   password: string;
   name: string;
   region?: string;
-  mentorId?: string;
+  referredByCode?: string;
 }
 
 export interface AuthResponse {

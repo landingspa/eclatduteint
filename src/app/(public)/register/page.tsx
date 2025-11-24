@@ -14,7 +14,7 @@ export default function RegisterPage() {
     password: "",
     confirmPassword: "",
     region: "",
-    mentorId: "",
+    referredByCode: "",
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -41,13 +41,24 @@ export default function RegisterPage() {
 
     try {
       setLoading(true);
+
+      console.log("📤 Sending registration data:", {
+        name: formData.name,
+        email: formData.email,
+        password: "***hidden***",
+        region: formData.region || undefined,
+        referredByCode: formData.referredByCode || undefined,
+      });
+
       const response = await authService.register({
         name: formData.name,
         email: formData.email,
         password: formData.password,
         region: formData.region || undefined,
-        mentorId: formData.mentorId || undefined,
+        referredByCode: formData.referredByCode || undefined,
       });
+
+      console.log("✅ Registration successful:", response);
 
       // Save user info
       authService.setCurrentUser(response.user);
@@ -62,7 +73,15 @@ export default function RegisterPage() {
       // Redirect to products or home
       router.push("/products");
     } catch (err: any) {
-      setError(getErrorMessage(err));
+      console.error("❌ Registration error:", err);
+      console.error("Error response:", err.response?.data);
+      console.error("Error message:", getErrorMessage(err));
+
+      const errorMessage = getErrorMessage(err);
+      setError(errorMessage);
+
+      // Scroll to top to see error
+      window.scrollTo({ top: 0, behavior: "smooth" });
     } finally {
       setLoading(false);
     }
@@ -272,15 +291,18 @@ export default function RegisterPage() {
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Mã Mentor
+                    Mã giới thiệu
                   </label>
                   <input
                     type="text"
-                    value={formData.mentorId}
+                    value={formData.referredByCode}
                     onChange={(e) =>
-                      setFormData({ ...formData, mentorId: e.target.value })
+                      setFormData({
+                        ...formData,
+                        referredByCode: e.target.value,
+                      })
                     }
-                    placeholder="Nếu được giới thiệu..."
+                    placeholder="Nhập mã giới thiệu (nếu có)..."
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition"
                   />
                 </div>

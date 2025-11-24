@@ -89,11 +89,18 @@ export class BaseService {
         if (error.response) {
           switch (error.response.status) {
             case 401:
-              // Handle unauthorized - clear token and redirect to login
+              // Handle unauthorized - clear token and redirect to login ONLY if on admin pages
               this.clearToken();
               if (typeof window !== "undefined") {
-                // Redirect to login page
-                window.location.href = "/admin/login";
+                // Only redirect to admin login if currently on admin pages
+                const currentPath = window.location.pathname;
+                if (currentPath.startsWith("/admin")) {
+                  window.location.href = "/admin/login";
+                }
+                // For public pages, just log the error and let the component handle it
+                console.log(
+                  "401 Unauthorized - Not redirecting from public page"
+                );
               }
               break;
             case 403:
