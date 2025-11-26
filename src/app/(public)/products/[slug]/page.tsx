@@ -32,7 +32,7 @@ export default function ProductDetailPage() {
   };
 
   const formatPrice = (price: number) => {
-    return new Intl.NumberFormat("ko-KR").format(price);
+    return new Intl.NumberFormat("vi-VN").format(price);
   };
 
   const increaseQuantity = () => setQuantity(quantity + 1);
@@ -152,12 +152,12 @@ export default function ProductDetailPage() {
             <div className="mb-6">
               <div className="flex items-center gap-3 mb-2">
                 <span className="text-3xl font-bold text-[#662d91]">
-                  {formatPrice(product.salePrice)}원
+                  {formatPrice(product.salePrice)}₫
                 </span>
                 {product.hasSale && (
                   <>
                     <span className="text-xl text-gray-400 line-through">
-                      {formatPrice(product.originalPrice)}원
+                      {formatPrice(product.originalPrice)}₫
                     </span>
                     <span className="bg-red-500 text-white text-sm px-2 py-1 rounded font-bold">
                       -{discount}%
@@ -169,7 +169,7 @@ export default function ProductDetailPage() {
                 <p className="text-sm text-gray-600">
                   {t("saved")}:{" "}
                   <span className="font-bold text-red-500">
-                    {formatPrice(product.originalPrice - product.salePrice)}원
+                    {formatPrice(product.originalPrice - product.salePrice)}₫
                   </span>
                 </p>
               )}
@@ -204,7 +204,7 @@ export default function ProductDetailPage() {
                 <span className="text-gray-600">
                   {t("total")}:{" "}
                   <span className="font-bold text-[#662d91]">
-                    {formatPrice(product.salePrice * quantity)}원
+                    {formatPrice(product.salePrice * quantity)}₫
                   </span>
                 </span>
               </div>
@@ -468,7 +468,7 @@ export default function ProductDetailPage() {
                       : relatedProduct.name}
                   </h3>
                   <p className="text-sm font-bold text-[#662d91]">
-                    {formatPrice(relatedProduct.salePrice)}원
+                    {formatPrice(relatedProduct.salePrice)}₫
                   </p>
                 </Link>
               ))}

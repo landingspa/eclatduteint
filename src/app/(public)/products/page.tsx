@@ -34,7 +34,7 @@ const ProductsPage = () => {
   }, [selectedCategory]);
 
   const formatPrice = (price: number) => {
-    return price.toLocaleString("ko-KR");
+    return price.toLocaleString("vi-VN");
   };
 
   const getProductName = (product: Product) => {
@@ -136,11 +136,11 @@ const ProductsPage = () => {
                         {getProductName(product)}
                       </h3>
                       <p className="text-lg font-bold">
-                        {formatPrice(product.salePrice)}원
+                        {formatPrice(product.salePrice)}₫
                       </p>
                       {product.hasSale && (
                         <p className="text-sm line-through opacity-70">
-                          {formatPrice(product.originalPrice)}원
+                          {formatPrice(product.originalPrice)}₫
                         </p>
                       )}
                     </div>
@@ -154,11 +154,11 @@ const ProductsPage = () => {
                   </h3>
                   <div className="flex items-center justify-center gap-2 mb-2">
                     <p className="text-sm md:text-base font-bold text-[#595757]">
-                      {formatPrice(product.salePrice)}원
+                      {formatPrice(product.salePrice)}₫
                     </p>
                     {product.hasSale && (
                       <p className="text-xs md:text-sm text-gray-400 line-through">
-                        {formatPrice(product.originalPrice)}원
+                        {formatPrice(product.originalPrice)}₫
                       </p>
                     )}
                   </div>
