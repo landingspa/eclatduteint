@@ -1,5 +1,13 @@
 import { BaseService, UserRole } from "./base.service";
 
+export type DiscountTier =
+  | "VIP"
+  | "MENTOR"
+  | "MENTEE"
+  | "LOYALTY"
+  | "NONE"
+  | null;
+
 export interface User {
   id: string;
   email: string;
@@ -9,7 +17,7 @@ export interface User {
   mentorId?: string;
   referralCode?: string;
   referredByCode?: string | null;
-  discountTier?: string;
+  discountTier?: DiscountTier;
   createdAt?: string;
   updatedAt?: string;
 }

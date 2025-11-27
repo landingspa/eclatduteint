@@ -1,5 +1,4 @@
 "use client";
-
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { authService, userService } from "@/service";
@@ -11,6 +10,19 @@ import {
   getErrorMessage,
   isValidEmail,
 } from "@/service/helpers";
+
+type DiscountTier = "VIP" | "MENTOR" | "MENTEE" | "LOYALTY" | "NONE" | null;
+
+function getDiscountTierDisplay(tier: string | null | undefined): string {
+  if (!tier || tier === "NONE") return "Không giảm giá";
+  const tiers: Record<string, string> = {
+    VIP: "VIP - Giảm giá 45%",
+    MENTOR: "MENTOR - Giảm giá 40%",
+    MENTEE: "MENTEE - Giảm giá 30%",
+    LOYALTY: "LOYALTY - Giảm giá 10%",
+  };
+  return tiers[tier] || tier;
+}
 
 export default function UsersPage() {
   const router = useRouter();
@@ -66,6 +78,7 @@ export default function UsersPage() {
       role: user.role,
       region: user.region,
       mentorId: user.mentorId,
+      discountTier: user.discountTier || undefined,
     });
     setEditMode(true);
   };
@@ -160,13 +173,16 @@ export default function UsersPage() {
   };
 
   const handleExportCSV = () => {
-    const csvHeaders = "ID,Họ tên,Email,Vai trò,Khu vực,Mã Mentor,Ngày tạo\n";
+    const csvHeaders =
+      "ID,Họ tên,Email,Vai trò,Khu vực,Mã giới thiệu,Cấp giảm giá,Ngày tạo\n";
     const csvData = filteredUsers
       .map(
         (user) =>
           `${user.id},${user.name},${user.email},${getRoleDisplayName(
             user.role
-          )},${user.region || ""},${user.mentorId || ""},${
+          )},${user.region || ""},${
+            user.referralCode || ""
+          },${getDiscountTierDisplay(user.discountTier)},${
             user.createdAt ? formatDate(user.createdAt) : ""
           }`
       )
@@ -370,10 +386,13 @@ export default function UsersPage() {
                   Vai trò
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Cấp thành viên
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Khu vực
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Mã Mentor
+                  Mã giới thiệu
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Ngày tạo
@@ -421,11 +440,31 @@ export default function UsersPage() {
                       {getRoleDisplayName(user.role)}
                     </span>
                   </td>
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    <span
+                      className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
+                      ${
+                        user.discountTier === "VIP"
+                          ? "bg-yellow-100 text-yellow-800"
+                          : user.discountTier === "MENTOR"
+                          ? "bg-green-100 text-green-800"
+                          : user.discountTier === "MENTEE"
+                          ? "bg-blue-100 text-blue-800"
+                          : user.discountTier === "LOYALTY"
+                          ? "bg-pink-100 text-pink-800"
+                          : "bg-gray-100 text-gray-500"
+                      }`}
+                    >
+                      {getDiscountTierDisplay(user.discountTier)}
+                    </span>
+                  </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                     {user.region || "-"}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    {user.mentorId ? `#${user.mentorId.slice(0, 8)}` : "-"}
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    <span className="text-sm font-mono bg-gray-100 px-2 py-1 rounded text-gray-700">
+                      {user.referralCode || "-"}
+                    </span>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                     {user.createdAt ? formatDate(user.createdAt) : "-"}
@@ -587,6 +626,30 @@ export default function UsersPage() {
                     <option value="MENTOR">Mentor</option>
                     <option value="LEADER">Leader</option>
                     <option value="ADMIN">Quản trị viên</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Cấp giảm giá
+                  </label>
+                  <select
+                    value={editData.discountTier || ""}
+                    onChange={(e) => {
+                      const tier = e.target.value;
+                      setEditData({
+                        ...editData,
+                        discountTier: tier || undefined,
+                      });
+                    }}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  >
+                    <option value="">Chọn cấp giảm giá</option>
+                    <option value="VIP">VIP - Giảm giá 45%</option>
+                    <option value="MENTOR">MENTOR - Giảm giá 40%</option>
+                    <option value="MENTEE">MENTEE - Giảm giá 30%</option>
+                    <option value="LOYALTY">LOYALTY - Giảm giá 10%</option>
+                    <option value="NONE">NONE - Không giảm giá</option>
                   </select>
                 </div>
 
@@ -768,6 +831,50 @@ export default function UsersPage() {
                       💡 Mật khẩu mặc định là <strong>123456</strong> nếu bạn
                       không nhập
                     </p>
+                  </div>
+                </div>
+
+                {/* Cấp thành viên */}
+                <div className="bg-yellow-50 p-4 rounded-lg">
+                  <h3 className="text-sm font-semibold text-yellow-900 mb-4 flex items-center">
+                    <svg
+                      className="w-5 h-5 mr-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+                      />
+                    </svg>
+                    Cấp thành viên & Hoa hồng
+                  </h3>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Cấp giảm giá
+                    </label>
+                    <select
+                      value={editData.discountTier || ""}
+                      onChange={(e) => {
+                        const tier = e.target.value;
+                        setEditData({
+                          ...editData,
+                          discountTier: tier || undefined,
+                        });
+                      }}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition"
+                    >
+                      <option value="">Chọn cấp giảm giá</option>
+                      <option value="VIP">VIP - Giảm giá 45%</option>
+                      <option value="MENTOR">MENTOR - Giảm giá 40%</option>
+                      <option value="MENTEE">MENTEE - Giảm giá 30%</option>
+                      <option value="LOYALTY">LOYALTY - Giảm giá 10%</option>
+                      <option value="NONE">NONE - Không giảm giá</option>
+                    </select>
                   </div>
                 </div>
 

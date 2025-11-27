@@ -8,6 +8,7 @@ export interface UpdateUserData {
   region?: string;
   mentorId?: string;
   password?: string;
+  discountTier?: string;
 }
 
 export interface CreateUserData {
@@ -16,6 +17,7 @@ export interface CreateUserData {
   name: string;
   region?: string;
   mentorId?: string;
+  discountTier?: string;
 }
 
 export interface ReferralUser {
