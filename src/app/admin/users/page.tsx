@@ -11,7 +11,7 @@ import {
   isValidEmail,
 } from "@/service/helpers";
 
-type DiscountTier = "VIP" | "MENTOR" | "MENTEE" | "LOYALTY" | "NONE" | null;
+type UserDiscountTier = "VIP" | "MENTOR" | "MENTEE" | "LOYALTY" | "NONE" | null;
 
 function getDiscountTierDisplay(tier: string | null | undefined): string {
   if (!tier || tier === "NONE") return "Không giảm giá";

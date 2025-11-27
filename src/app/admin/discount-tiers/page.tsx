@@ -2,13 +2,13 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { authService } from "@/service";
 import {
-  authService,
   discountTierService,
   DiscountTier,
   DiscountTierType,
   CreateDiscountTierDto,
-} from "@/service";
+} from "@/service/discount-tier.service";
 
 export default function DiscountTiersPage() {
   const router = useRouter();
