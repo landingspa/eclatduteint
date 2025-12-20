@@ -672,7 +672,9 @@
       "likes": "Likes",
       "cart": "Add to Cart",
       "addedToCart": "Added",
-      "currency": "$"
+      "currency": "$",
+      "contact": "Contact",
+      "contactForPrice": "Contact for price"
     }
   },
   "productDetail": {
@@ -683,6 +685,8 @@
     "addToCart": "Add to Cart",
     "buyNow": "Buy Now",
     "addToWishlist": "Add to Wishlist",
+    "contact": "Contact",
+    "contactForPrice": "Contact for price",
     "features": {
       "freeShipping": {
         "title": "Free Shipping",
@@ -722,6 +726,8 @@
     "shippingFree": "Free",
     "grandTotal": "Grand Total",
     "proceedToCheckout": "Proceed to Checkout",
+    "contact": "Contact",
+    "contactForPrice": "Contact for price",
     "orderForm": {
       "title": "Order Information",
       "name": "Full Name",

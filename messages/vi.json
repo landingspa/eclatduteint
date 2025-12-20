@@ -672,7 +672,9 @@
       "likes": "Yêu thích",
       "cart": "Thêm vào giỏ",
       "addedToCart": "Đã thêm",
-      "currency": "₫"
+      "currency": "₫",
+      "contact": "Liên hệ",
+      "contactForPrice": "Liên hệ để biết giá"
     }
   },
   "productDetail": {
@@ -683,6 +685,8 @@
     "addToCart": "Thêm Vào Giỏ Hàng",
     "buyNow": "Mua Ngay",
     "addToWishlist": "Thêm Vào Yêu Thích",
+    "contact": "Liên hệ",
+    "contactForPrice": "Liên hệ để biết giá",
     "features": {
       "freeShipping": {
         "title": "Miễn Phí Vận Chuyển",
@@ -722,6 +726,8 @@
     "shippingFree": "Miễn phí",
     "grandTotal": "Tổng cộng",
     "proceedToCheckout": "Tiến hành đặt hàng",
+    "contact": "Liên hệ",
+    "contactForPrice": "Liên hệ để biết giá",
     "orderForm": {
       "title": "Thông tin đặt hàng",
       "name": "Họ và tên",

@@ -34,6 +34,7 @@ const ProductsPage = () => {
   }, [selectedCategory]);
 
   const formatPrice = (price: number) => {
+    if (price === 0) return null; // Return null for 0 prices
     return price.toLocaleString("vi-VN");
   };
 
@@ -135,13 +136,19 @@ const ProductsPage = () => {
                       <h3 className="text-sm md:text-base font-bold mb-2">
                         {getProductName(product)}
                       </h3>
-                      <p className="text-lg font-bold">
-                        {formatPrice(product.salePrice)}₫
-                      </p>
-                      {product.hasSale && (
-                        <p className="text-sm line-through opacity-70">
-                          {formatPrice(product.originalPrice)}₫
-                        </p>
+                      {product.salePrice === 0 ? (
+                        <p className="text-lg font-bold">{t("labels.contactForPrice")}</p>
+                      ) : (
+                        <>
+                          <p className="text-lg font-bold">
+                            {formatPrice(product.salePrice)}₫
+                          </p>
+                          {product.hasSale && (
+                            <p className="text-sm line-through opacity-70">
+                              {formatPrice(product.originalPrice)}₫
+                            </p>
+                          )}
+                        </>
                       )}
                     </div>
                   </div>
@@ -152,16 +159,24 @@ const ProductsPage = () => {
                   <h3 className="text-sm md:text-base font-bold text-[#595757] mb-2 line-clamp-2">
                     {getProductName(product)}
                   </h3>
-                  <div className="flex items-center justify-center gap-2 mb-2">
-                    <p className="text-sm md:text-base font-bold text-[#595757]">
-                      {formatPrice(product.salePrice)}₫
-                    </p>
-                    {product.hasSale && (
-                      <p className="text-xs md:text-sm text-gray-400 line-through">
-                        {formatPrice(product.originalPrice)}₫
+                  {product.salePrice === 0 ? (
+                    <div className="flex items-center justify-center mb-2">
+                      <p className="text-sm md:text-base font-bold text-[#662d91]">
+                        {t("labels.contactForPrice")}
                       </p>
-                    )}
-                  </div>
+                    </div>
+                  ) : (
+                    <div className="flex items-center justify-center gap-2 mb-2">
+                      <p className="text-sm md:text-base font-bold text-[#595757]">
+                        {formatPrice(product.salePrice)}₫
+                      </p>
+                      {product.hasSale && (
+                        <p className="text-xs md:text-sm text-gray-400 line-through">
+                          {formatPrice(product.originalPrice)}₫
+                        </p>
+                      )}
+                    </div>
+                  )}
 
                   {/* Icons */}
                   <div className="flex items-center justify-center gap-4 text-xs text-gray-500 mb-3">
@@ -202,50 +217,59 @@ const ProductsPage = () => {
               </Link>
 
               {/* Add to Cart Button - Always at bottom */}
-              <button
-                onClick={(e) => handleAddToCart(product, e)}
-                className={`w-full py-2 px-4 rounded-lg transition-all mt-auto ${
-                  addedToCartId === product.id
-                    ? "bg-green-500 text-white"
-                    : "bg-[#662d91] text-white hover:bg-[#551f7a]"
-                }`}
-              >
-                {addedToCartId === product.id ? (
-                  <span className="flex items-center justify-center gap-2">
-                    <svg
-                      className="w-5 h-5"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                    {t("labels.addedToCart") || "Đã thêm"}
-                  </span>
-                ) : (
-                  <span className="flex items-center justify-center gap-2">
-                    <svg
-                      className="w-5 h-5"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
-                      />
-                    </svg>
-                    {t("labels.cart") || "Thêm vào giỏ"}
-                  </span>
-                )}
-              </button>
+              {product.salePrice === 0 ? (
+                <Link
+                  href="/contact"
+                  className="w-full py-2 px-4 rounded-lg bg-[#662d91] text-white hover:bg-[#551f7a] transition-all mt-auto flex items-center justify-center"
+                >
+                  {t("labels.contact")}
+                </Link>
+              ) : (
+                <button
+                  onClick={(e) => handleAddToCart(product, e)}
+                  className={`w-full py-2 px-4 rounded-lg transition-all mt-auto ${
+                    addedToCartId === product.id
+                      ? "bg-green-500 text-white"
+                      : "bg-[#662d91] text-white hover:bg-[#551f7a]"
+                  }`}
+                >
+                  {addedToCartId === product.id ? (
+                    <span className="flex items-center justify-center gap-2">
+                      <svg
+                        className="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                      {t("labels.addedToCart") || "Đã thêm"}
+                    </span>
+                  ) : (
+                    <span className="flex items-center justify-center gap-2">
+                      <svg
+                        className="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+                        />
+                      </svg>
+                      {t("labels.cart") || "Thêm vào giỏ"}
+                    </span>
+                  )}
+                </button>
+              )}
             </div>
           ))}
         </div>

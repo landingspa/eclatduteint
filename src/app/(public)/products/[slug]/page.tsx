@@ -32,6 +32,7 @@ export default function ProductDetailPage() {
   };
 
   const formatPrice = (price: number) => {
+    if (price === 0) return null; // Return null for 0 prices
     return new Intl.NumberFormat("vi-VN").format(price);
   };
 
@@ -150,28 +151,38 @@ export default function ProductDetailPage() {
 
             {/* Price */}
             <div className="mb-6">
-              <div className="flex items-center gap-3 mb-2">
-                <span className="text-3xl font-bold text-[#662d91]">
-                  {formatPrice(product.salePrice)}₫
-                </span>
-                {product.hasSale && (
-                  <>
-                    <span className="text-xl text-gray-400 line-through">
-                      {formatPrice(product.originalPrice)}₫
-                    </span>
-                    <span className="bg-red-500 text-white text-sm px-2 py-1 rounded font-bold">
-                      -{discount}%
-                    </span>
-                  </>
-                )}
-              </div>
-              {product.hasSale && (
-                <p className="text-sm text-gray-600">
-                  {t("saved")}:{" "}
-                  <span className="font-bold text-red-500">
-                    {formatPrice(product.originalPrice - product.salePrice)}₫
+              {product.salePrice === 0 ? (
+                <div className="mb-2">
+                  <span className="text-3xl font-bold text-[#662d91]">
+                    {t("contactForPrice")}
                   </span>
-                </p>
+                </div>
+              ) : (
+                <>
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="text-3xl font-bold text-[#662d91]">
+                      {formatPrice(product.salePrice)}₫
+                    </span>
+                    {product.hasSale && (
+                      <>
+                        <span className="text-xl text-gray-400 line-through">
+                          {formatPrice(product.originalPrice)}₫
+                        </span>
+                        <span className="bg-red-500 text-white text-sm px-2 py-1 rounded font-bold">
+                          -{discount}%
+                        </span>
+                      </>
+                    )}
+                  </div>
+                  {product.hasSale && (
+                    <p className="text-sm text-gray-600">
+                      {t("saved")}:{" "}
+                      <span className="font-bold text-red-500">
+                        {formatPrice(product.originalPrice - product.salePrice)}₫
+                      </span>
+                    </p>
+                  )}
+                </>
               )}
             </div>
 
@@ -179,76 +190,89 @@ export default function ProductDetailPage() {
             <div className="border-t border-gray-200 my-6"></div>
 
             {/* Quantity Selector */}
-            <div className="mb-6">
-              <label className="block text-sm font-medium text-[#595757] mb-2">
-                {t("quantity")}
-              </label>
-              <div className="flex items-center gap-4">
-                <div className="flex items-center border border-gray-300 rounded">
-                  <button
-                    onClick={decreaseQuantity}
-                    className="px-4 py-2 hover:bg-gray-100 transition"
-                  >
-                    -
-                  </button>
-                  <span className="px-6 py-2 border-x border-gray-300 font-medium">
-                    {quantity}
+            {product.salePrice !== 0 && (
+              <div className="mb-6">
+                <label className="block text-sm font-medium text-[#595757] mb-2">
+                  {t("quantity")}
+                </label>
+                <div className="flex items-center gap-4">
+                  <div className="flex items-center border border-gray-300 rounded">
+                    <button
+                      onClick={decreaseQuantity}
+                      className="px-4 py-2 hover:bg-gray-100 transition"
+                    >
+                      -
+                    </button>
+                    <span className="px-6 py-2 border-x border-gray-300 font-medium">
+                      {quantity}
+                    </span>
+                    <button
+                      onClick={increaseQuantity}
+                      className="px-4 py-2 hover:bg-gray-100 transition"
+                    >
+                      +
+                    </button>
+                  </div>
+                  <span className="text-gray-600">
+                    {t("total")}:{" "}
+                    <span className="font-bold text-[#662d91]">
+                      {formatPrice(product.salePrice * quantity)}₫
+                    </span>
                   </span>
-                  <button
-                    onClick={increaseQuantity}
-                    className="px-4 py-2 hover:bg-gray-100 transition"
-                  >
-                    +
-                  </button>
                 </div>
-                <span className="text-gray-600">
-                  {t("total")}:{" "}
-                  <span className="font-bold text-[#662d91]">
-                    {formatPrice(product.salePrice * quantity)}₫
-                  </span>
-                </span>
               </div>
-            </div>
+            )}
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-6">
-              <button
-                onClick={handleAddToCart}
-                disabled={isAddingToCart}
-                className={`flex-1 py-3 px-6 rounded-lg font-bold transition flex items-center justify-center gap-2 ${
-                  isAddingToCart
-                    ? "bg-green-500 text-white"
-                    : "bg-[#662d91] text-white hover:bg-[#552577]"
-                }`}
-              >
-                {isAddingToCart ? (
-                  <>
-                    <svg
-                      className="w-5 h-5"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                    Đã thêm vào giỏ!
-                  </>
-                ) : (
-                  t("addToCart")
-                )}
-              </button>
-              <button
-                onClick={handleBuyNow}
-                className="flex-1 bg-white text-[#662d91] border-2 border-[#662d91] py-3 px-6 rounded-lg font-bold hover:bg-[#662d91] hover:text-white transition"
-              >
-                {t("buyNow")}
-              </button>
-            </div>
+            {product.salePrice === 0 ? (
+              <div className="mb-6">
+                <Link
+                  href="/contact"
+                  className="w-full py-3 px-6 rounded-lg font-bold bg-[#662d91] text-white hover:bg-[#552577] transition flex items-center justify-center"
+                >
+                  {t("contact")}
+                </Link>
+              </div>
+            ) : (
+              <div className="flex flex-col sm:flex-row gap-4 mb-6">
+                <button
+                  onClick={handleAddToCart}
+                  disabled={isAddingToCart}
+                  className={`flex-1 py-3 px-6 rounded-lg font-bold transition flex items-center justify-center gap-2 ${
+                    isAddingToCart
+                      ? "bg-green-500 text-white"
+                      : "bg-[#662d91] text-white hover:bg-[#552577]"
+                  }`}
+                >
+                  {isAddingToCart ? (
+                    <>
+                      <svg
+                        className="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                      Đã thêm vào giỏ!
+                    </>
+                  ) : (
+                    t("addToCart")
+                  )}
+                </button>
+                <button
+                  onClick={handleBuyNow}
+                  className="flex-1 bg-white text-[#662d91] border-2 border-[#662d91] py-3 px-6 rounded-lg font-bold hover:bg-[#662d91] hover:text-white transition"
+                >
+                  {t("buyNow")}
+                </button>
+              </div>
+            )}
 
             {/* Wishlist */}
             <button className="w-full flex items-center justify-center gap-2 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition">
@@ -468,7 +492,9 @@ export default function ProductDetailPage() {
                       : relatedProduct.name}
                   </h3>
                   <p className="text-sm font-bold text-[#662d91]">
-                    {formatPrice(relatedProduct.salePrice)}₫
+                    {relatedProduct.salePrice === 0
+                      ? t("contactForPrice")
+                      : `${formatPrice(relatedProduct.salePrice)}₫`}
                   </p>
                 </Link>
               ))}
