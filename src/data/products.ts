@@ -399,7 +399,7 @@ export const products: Product[] = [
     nameVi: "Bông Tẩy Trang (200 Miếng)",
     image: "/images/38cbe148806e9.webp",
     originalPrice: 175000,
-    salePrice: 1500000,
+    salePrice: 150000,
     hasSale: true,
     reviews: 2,
     likes: 0,
